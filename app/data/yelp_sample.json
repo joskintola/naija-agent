@@ -1,0 +1,944 @@
+{
+  "users": [
+    {
+      "user_id": "fczQCSmaWF78toLEmb0Zsw",
+      "name": "User fczQCS",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Bukka Hut",
+          "category": "Nigerian Cuisine",
+          "rating": 4,
+          "review": "I really don't consider myself a Neiman's type of girl... As a matter of fact, I don't really feel comfortable in Neiman's - it's extremely 'fancy' and high end for me. But, I've gone in a handful of times and even bought a dress or two on sale at Neiman's in the past. I admit, the quality associated with the designer labels at this store is pretty amazing. Anyways, I felt some major pressure to r"
+        },
+        {
+          "business_name": "Liquid Assets Bar",
+          "category": "Bar & Grill",
+          "rating": 5,
+          "review": "Another great Italian find! My BF and I went to Roma Garden for dinner last night because he was given a gift certificate there from a friend. We'd never heard of it, but we're always up for trying something new, especially with $50 towards our meal. We pulled up to their strip mall location without expectations and we were both pleasantly surprised! When you walk in, the lighting and decor are we"
+        },
+        {
+          "business_name": "Tandoor Indian Restaurant",
+          "category": "Indian",
+          "rating": 4,
+          "review": "On a mission to find some University of Michigan apparel that fit my pregnant body, I started my search with a phone call to Sports Authority. I struck out there within minutes as I was told that they only carry AZ team apparel. Shucks! Luckily for me, Lindsey F overheard my conversation and suggested I call Bischoff's Shades of the West. She remembered seeing a ton of college apparel during her l"
+        }
+      ]
+    },
+    {
+      "user_id": "KLekdmo4FdNnP0huUhzZNw",
+      "name": "User KLekdm",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "KFC Ikeja City Mall",
+          "category": "Fast Food",
+          "rating": 4,
+          "review": "I have been trying to reduce my caloric intake and found out that at Red Robin you can order a \"petite\" burger. It is smaller but has the same toppings you order on the regular. So for those of you that don't want to have a burger that is 1000 calories (yes they are and more with the endless fries) , try the petite."
+        },
+        {
+          "business_name": "Calabar Kitchen",
+          "category": "Nigerian Cuisine",
+          "rating": 5,
+          "review": "House special chicken is a must. This is not a fancy schmancy place so you know the food will be good! Never have had to wait for a table. The banana thingies they give you for dessert are awesome too. I give it 5 stars because of the huge selection. Pei Wei and PF Changs are ok but they have a limited menu. And a LARGE wait!"
+        }
+      ]
+    },
+    {
+      "user_id": "ZmIgP4U4Ht9CYmNX0_zP6w",
+      "name": "User ZmIgP4",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Spice Route Restaurant",
+          "category": "Indian",
+          "rating": 4,
+          "review": "Someone asked the question in the Yelp talk threads where the best place was for fried things, like french fries and onion rings. Several people said Ted's had great onion rings......so off I went! I expected a smaller place but I was pleasantly suprised when I pulled up to a medium sized store. I was greated with a smile and asked what I would like. It was a Sunday afternoon so they were not very"
+        },
+        {
+          "business_name": "Sizzler Restaurant",
+          "category": "Continental",
+          "rating": 4,
+          "review": "I was looking for a comforter for my new bed when I realized that this B,B, and B was close by so I stopped in to look around. This is a nice store, It was organized well and the sales people were nice, not pushy. I did not find a comforter but I did find several other things. They have a nice selection of quality products and those 20% off coupons I get in the mail aren't bad either. Prices can b"
+        }
+      ]
+    },
+    {
+      "user_id": "uZbTb-u-GVjTa2gtQfry5g",
+      "name": "User uZbTb-",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Terra Kulture Restaurant",
+          "category": "Nigerian Cuisine",
+          "rating": 4,
+          "review": "After browsing at the Bookman's next door, we were feeling hungry and were tempted by the notion of tasty burritos. We ended up getting non-burrito meals, but were fully satisfied with our entrees. The green chile plate was filled with perfectly cooked pork with a spicy tomatillo sauce that went well with the pork. The horchata tasted freshly made and was very refreshing and light. Overall, I thin"
+        },
+        {
+          "business_name": "Barbeque Village",
+          "category": "Grills",
+          "rating": 5,
+          "review": "Tried the Restaurant Week special, and chose the Stetson chopped salad, mixed mushrooms with polenta, and bread pudding. The Stetson chopped was amazing. The preparation is beautiful when they bring it out, and then the taste is the perfect mix of sweet, savory, crunchy, soft once the salad is mixed up. I tried some of the testosterone salad, which was decent, and filled with a lot of well prepare"
+        }
+      ]
+    },
+    {
+      "user_id": "APLIPfq1Rf8QyhHHk2uAyA",
+      "name": "User APLIPf",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Place Fast Food",
+          "category": "Fast Food",
+          "rating": 1,
+          "review": "Ok, so I have to share my morning experience. But first I must start off by saying this: I'm no moron. Honest. So, this morning I stopped for gas. My tank was getting dangerously low and there was no way I'd make it to work. That's okay, for I allotted time this morning for re-filling my tank. From my casa, I turned East on Indian School, vaguely remembering there's a Quick Trip nearby. Perfect. I"
+        },
+        {
+          "business_name": "Liquid Assets Bar",
+          "category": "Bar & Grill",
+          "rating": 3,
+          "review": "Uh-oh. Where am I? The view from atop the mountain is superb. The city can be seen in all directions. Look, there's Downtown 1 and Downtown 2. And a bunch of houses under construction. And look at that sky. Wowza. Ok, so stopping to enjoy the view is one thing. Stopping to figure out where the hell you are is another. \"Don't worry,\" I told my friend. \"This city is laid out in a grid. If anything, "
+        },
+        {
+          "business_name": "Zinnia Restaurant Transcorp",
+          "category": "Fine Dining",
+          "rating": 4,
+          "review": "There's not much more I can say about Rula that hasn't already been said. Except, I guess, I can tell you why I like this place. I like it for two glorious words: HAPPY + HOUR. Yes, those two words matters so much to me. Rula offers 1/2 off all appetizers and discounts on pints. What could be better? I say try the brie, for it comes with an unbelievable apple chutney. If you're looking to split an"
+        }
+      ]
+    },
+    {
+      "user_id": "3w-JiPus8k-BR5PQ7egDvQ",
+      "name": "User 3w-JiP",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Bungalow Beach Bar",
+          "category": "Bar & Grill",
+          "rating": 5,
+          "review": "Went here today Sunday about 8:50 and it was crowded but not to bad, about 1/2 hour wait. Im warning you now, dont ask how much longer after you put your name in if they told you how long when you checked in. About 10am is when it really got packed, just about when we got done. I ordered the chicken and waffles and i really liked it. I asked for some butter for my waffle because it didnt come with"
+        },
+        {
+          "business_name": "Suya Spot Garki",
+          "category": "Street Food",
+          "rating": 5,
+          "review": "i hate going to places that i can goto near home, in Phx for the Cubs games.. but my daughter wanted pizza and we saw Z and had to go becuz we know how good it is. I like this one alot better then ours."
+        }
+      ]
+    },
+    {
+      "user_id": "FxxYCRPcpd__yhRRmmtyMQ",
+      "name": "User FxxYCR",
+      "location": "Kano, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Zankli Restaurant",
+          "category": "Nigerian Cuisine",
+          "rating": 1,
+          "review": "Some of my friends brought me here last night and the first thing that came into my mind was that this was a set up for To Catch A Predator. I was ready for Chris Hansen to pop out and grill me with, \"What are you doing here?\" If you feel like Kubrick's Lolita really speaks to you, as in it mirrors your life, then you've found a place to feel comfortable in your pervert skin. If you're of age to c"
+        },
+        {
+          "business_name": "Nok by Alara",
+          "category": "Fine Dining",
+          "rating": 3,
+          "review": "For such a small space, Stinkweeds definitely does a good job of packing as much variety as they can in their store. As far as record stores go, they've got a pretty decent collection in both CD's and vinyl. My only qualm with this place is that they tend to only carry newer stuff or the more popular titles of indie genres. If you're like me and like to peruse through older and hard-to-find collec"
+        }
+      ]
+    },
+    {
+      "user_id": "N3L6SDymSRkYQtTiSDmXSg",
+      "name": "User N3L6SD",
+      "location": "Abuja, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Sheraton Hotel Bukka",
+          "category": "Nigerian Cuisine",
+          "rating": 4,
+          "review": "Decor functional Staff friendly and are really kind to our toddler food rocks within my limited range of red and yellow curries ( so much so they suggested I try something else, hey it's not my fault these are so good that I didn't want to risk anything lesser. Prices are a bargain for entrees, spice is there, they really get the request to make it very very hot. This is probably the best bargain "
+        },
+        {
+          "business_name": "Tastee Fried Chicken Surulere",
+          "category": "Fast Food",
+          "rating": 2,
+          "review": "Why Meh? The state of repair on the games made this a voyage of discovery, e.g, with a 2 hour unlimited card I could work out which machines actually worked:) .I'd rather have a downed machine than something that is unplayable but maybe I'm just unlucky that I hit the 4/5 games with issues in my first plays. End Ghost Recon.. gun on left won't hold steady target jumps all over. Opposite of it : Ne"
+        }
+      ]
+    },
+    {
+      "user_id": "1_zj7B1bRgE7dC6tywUcTQ",
+      "name": "User 1_zj7B",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Nok by Alara",
+          "category": "Fine Dining",
+          "rating": 5,
+          "review": "The waiter got the drink wrong: \"up\" means served strained without ice, not on the rocks, but I was happy about the mistake, The Salmon melted in my mouth and the bread pudding made me fat for hours, but was so worth it. Great atmosphere and none of our plates were empty when taken away. I would definitely go back. Good service, great food, fun atmosphere. Great flexible hours on a Sunday. GO !"
+        },
+        {
+          "business_name": "Yellow Chilli Victoria Island",
+          "category": "Nigerian Cuisine",
+          "rating": 5,
+          "review": "...The best Pad Thai I've ever tasted!!! Crab Wontons melt in your mouth!!! Excellent service... GO !!!"
+        }
+      ]
+    },
+    {
+      "user_id": "P_LzcrlVXFdgBq_24UnlUw",
+      "name": "User P_Lzcr",
+      "location": "Port Harcourt, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Okinawa Asian Bistro",
+          "category": "Asian Fusion",
+          "rating": 3,
+          "review": "As Target's go this one is standard fare. That consistency is part of their brand recognition. However, as a part of the Up-Scale Desert Ridge Shopping Center, I'd expect a bit more than a Standard Target. Don't they have some sort of a Flagship Target? Also traffic and parking can be atrocious at Desert Ridge. I drive to Target's and WalMart's much further from my house because the round trip tim"
+        },
+        {
+          "business_name": "Amala Joint UI Gate",
+          "category": "Street Food",
+          "rating": 4,
+          "review": "Excellent Park! As metropolitan areas go, Phoenix maintains a higher sense of civic duty than most towns, and that is reflected in its parks systems. White Tanks ranks in my TOP TEN list easily above #5. It is HUGE. It is DIVERSE. It has EDUCATIONAL FACILITIES. Bathrooms are CLEAN. And they have LOTS of EVENTS! Check out the calendar of events at their web page! http://www.maricopa.gov/parks/white"
+        }
+      ]
+    },
+    {
+      "user_id": "Jrx1fLr5JdqgHdIfMT7wag",
+      "name": "User Jrx1fL",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Street Grill Yaba",
+          "category": "Street Food",
+          "rating": 4,
+          "review": "This is my neighborhood grocery store. It's at the two locations I shop at most. It's always clean and well stocked and I never have to wait in line for very long."
+        },
+        {
+          "business_name": "Calabar Kitchen",
+          "category": "Nigerian Cuisine",
+          "rating": 4,
+          "review": "I only go for the movies or when I know what I'm getting. Not much of a shopper but I remember having fun here when I still lived in L.A. and came to visit."
+        }
+      ]
+    },
+    {
+      "user_id": "0bNXP9quoJEgyVZu9ipGgQ",
+      "name": "User 0bNXP9",
+      "location": "Abuja, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Buka Teria Wuse II",
+          "category": "Nigerian Cuisine",
+          "rating": 4,
+          "review": "Took Mom for dinner Monday night. This was the second time I took her here, and it'll be the last! Guess Tapino just isn't for her. Out of the three small plates we shared, she only enjoyed the lamb kabob over quinoa ($9). It was the second-best dish of the three I enjoyed. I'd wanted to try a glass of rose ($7), since Mom is a fan, but she was \"too tired\" to have wine, so I'll have to bookmark th"
+        },
+        {
+          "business_name": "Buka Teria Wuse II",
+          "category": "Nigerian Cuisine",
+          "rating": 5,
+          "review": "01/04/2012 I thank Yelp and ATC for giving me the great opportunity to experience a terrific performance of \"Daddy Long Legs,\" ATC's first musical production, at The Herberger Theater tonight! The two-actor (Megan McGinnis and Robert Adelman Hancock) musical, plus the invisible, but great assets, the orchestra and sound crew, entertained and amazed me w/ their execution of a well-written body of w"
+        }
+      ]
+    },
+    {
+      "user_id": "5gmnzvjYprzK21Q5awYF_Q",
+      "name": "User 5gmnzv",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Lagoon Restaurant",
+          "category": "Fine Dining",
+          "rating": 3,
+          "review": "The noodles are delicious here. I had the vegetarian spicy noodle. It doesn't come with anything but noodles and the sauce. It would be great if they could add some veggies in there though. So you chose the type of noodle you want and then the flavor. The prices are super cheap and the service is fast. The portions are huge and I could have eaten the whole plate if I didn't stop myself. I am curio"
+        },
+        {
+          "business_name": "Lagoon Restaurant",
+          "category": "Fine Dining",
+          "rating": 4,
+          "review": "I went to the one in Mesa on Baseline. I loved the vibe, service, and decor. They have witty jokes on the walls and the whole place makes you feel like you are at a party on the beach. We ordered the carne asada burrito and the mushroom burger and the sweet potato fries. We got the dessert pear and blackberry lemonades. You get 1 free refill so we tried the blood orange and the guava flavors after"
+        },
+        {
+          "business_name": "Wakkis Indian Restaurant",
+          "category": "Indian",
+          "rating": 2,
+          "review": "If you have a family with a lot of little kids, are absolutely happy with your body, and only want to leave your house to change your scenery, this is your place. If you are looking for a great workout, this is not your place. The hours are pretty bad and you have to plan your schedule around them. The cardio machines are good. The variety of weights is okay but they are all over the place. They h"
+        }
+      ]
+    },
+    {
+      "user_id": "7zDqr2I0-xpw9HF5Ha54cA",
+      "name": "User 7zDqr2",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Barcelos Lekki",
+          "category": "Grills",
+          "rating": 4,
+          "review": "The 4 stars is in comparison to other Chipotle's I've been to, especially in this area. I have to admit, when they were building this plaza, my friends and I tried to guess every day what it was going to be. We had it narrowed down to a Chipotle or a sushi joint (both would kill me for sure) and I cannot believe we were actually right. I am pretty pleased with this place. Both times I've stopped b"
+        },
+        {
+          "business_name": "Churrasco Restaurant",
+          "category": "Steakhouse",
+          "rating": 3,
+          "review": "I've swung into Echo a few times and haven't ever had a bad cup of coffee. The cappuccino is pretty solid and the zucchini bread I had for breakfast one day was a win. If I recall correctly it came in a cute little box too. For some reason I've never been able to feel relaxed and at home enough to chill and enjoy an afternoon or evening there. Not sure why, but just haven't."
+        }
+      ]
+    },
+    {
+      "user_id": "QhuESGhOQWnKqwlSrISm8A",
+      "name": "User QhuESG",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Hard Rock Cafe Lagos",
+          "category": "American",
+          "rating": 4,
+          "review": "Great place to see a show. Prices are the best around, and it's never too crowded."
+        },
+        {
+          "business_name": "Jevinik Wuse",
+          "category": "Nigerian Cuisine",
+          "rating": 4,
+          "review": "Fresh and Easy's are great. My only issues is how quickly some of the foods from this store go bad. Don't buy for a week from now unless it is frozen!"
+        }
+      ]
+    },
+    {
+      "user_id": "jKeaOrPyJ-dI9SNeVqrbww",
+      "name": "User jKeaOr",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Crunchies Fried Chicken",
+          "category": "Fast Food",
+          "rating": 4,
+          "review": "El Taco de Chandler exceeded my expectations. I've driven past it almost every day for a year. My curiosity finally got to me, so my boyfriend and I went in to try the food. We waited quite a few minutes (easily 10 to 15) for our order, which is a good sign for fresh preparations. The joint is hooked up with a juke box, pool table, dining area with tables and chairs, and two benches near the regis"
+        },
+        {
+          "business_name": "Lagoon Restaurant",
+          "category": "Fine Dining",
+          "rating": 1,
+          "review": "Take your money elsewhere, unless you've got kids. I really try to like this place. A family member signed me up for the discount card, so I've been going more often, but I just don't love it. It's simply ok, but the prices are outrageous. And the sounds and animatronics are a huge distraction from the so-so food. The cocktails are alright, but, again, the price is not right. The ony thing fun abo"
+        }
+      ]
+    },
+    {
+      "user_id": "HZeFzs42f0iGaA-sP_hUnA",
+      "name": "User HZeFzs",
+      "location": "Abuja, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Suya Republic Maitama",
+          "category": "Street Food",
+          "rating": 4,
+          "review": "Never been in - but I get pizza delivered from them now and then. I am a New Yorker and to call me a pizza snob probably doesn't go far enough. The crust is crispy, thin, and foldable, the outside edges, crispy and bubbly. Great mozzarella. I have never been disappointed by a topping. A little greasy, as it should be; it reminds me of NY pizza, and that's a big compliment coming from me. We don't "
+        },
+        {
+          "business_name": "Bungalow Beach Bar",
+          "category": "Bar & Grill",
+          "rating": 5,
+          "review": "Superb gelato - some of the best I've ever had! The guy behind the counter is the owner, and he takes pride in his gelato. They only use real sugar, not high fructose corn syrup, and nothing contains hydrogenated oil. I tasted a few flavors and settled on the coconut... it was sublime. Definitely some of the best Gelato I have ever had. When I need a mid day sugar rush... I'll be back!"
+        }
+      ]
+    },
+    {
+      "user_id": "kpbhy1zPewGDmdNfNqQp-g",
+      "name": "User kpbhy1",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Mr Biggs Ikeja",
+          "category": "Fast Food",
+          "rating": 4,
+          "review": "Always reliably good. Great beer selection as well as fabulous \"bitch fizz\" (ciders, etc.) and cocktails. Their pizza is outstanding AND they have a healthy menu. I generally steer clear of chains but this is an exception."
+        },
+        {
+          "business_name": "Sky Restaurant & Lounge",
+          "category": "Fine Dining",
+          "rating": 4,
+          "review": "I enjoyed our dinner here although I think this might be more of a happy hour destination. We had the trio of dips which were lovely. I had the house enchiladas with grilled chicken and that was delicious. The rice and beans left something to be desired. Husband had the pork green chile mac and cheese which he enjoyed but felt was underseasoned. I ordered the peach sangria on the recommendation of"
+        }
+      ]
+    },
+    {
+      "user_id": "JffajLV-Dnn-eGYgdXDxFg",
+      "name": "User JffajL",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "KFC Ikeja City Mall",
+          "category": "Fast Food",
+          "rating": 4,
+          "review": "I really love Pita Jungle. My first experience was at the one downtown, and now, I have to get my fix. I found this location since it is close to my home, and wanted to check it out. Upon entering, I was pleased with the location. Well decorated, clean, good lighting, ample seating. I was greated by the hostess, and sat at the bar. The place was pretty busy, and I was by myself. I was greeted in a"
+        },
+        {
+          "business_name": "Lagoon Restaurant",
+          "category": "Fine Dining",
+          "rating": 4,
+          "review": "I came here on Saturday becuase I had to get my Jeep serviced, and I wanted to check this dealership out. I made an appointment, and dropped my Jeep off in the sevice bay. I was greeted when I walked into the dealer, and I had a decent experience here. I DO have to say, that I didnt like waiting 3 hours, but that seems to be at most any dealership you go to for warranty work, so I cannot blame the"
+        }
+      ]
+    },
+    {
+      "user_id": "OYpsdMcpdCdlkknpgpFMLA",
+      "name": "User OYpsdM",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Pepperoni Restaurant",
+          "category": "Pizza",
+          "rating": 3,
+          "review": "I really wanted to fall madly in love with this place, I mean, a British themed pub in Heritage Square? So promising. As you walk in, the bartender is standing behind in an elaborate wooden bar structure. This made me think publican instead of bartender (as in \"Mate, I'll take a pint and d'ya have any rooms available?\"), which is probably the idea. As there was nice selection of draught beers, we "
+        },
+        {
+          "business_name": "Spice Route Restaurant",
+          "category": "Indian",
+          "rating": 4,
+          "review": "Update: they added a gorgeous new countertop (sans coffee wobbling mosiacs) and (ta-da!) a glass enclosed bakery display case! My friend Jefferson can now order his pastries with confidence."
+        }
+      ]
+    },
+    {
+      "user_id": "ZZ43etAB2n_T53YBYtf8Dw",
+      "name": "User ZZ43et",
+      "location": "Port Harcourt, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Liquid Assets Bar",
+          "category": "Bar & Grill",
+          "rating": 4,
+          "review": "I went there on a Mon around 9:30 am. It was a ghost town and we got seated very quick. I have to say they have the most comfortable seats! I didnt sit in the chair but a like bench couch thing? Super soft. The whole decor and music vibe was really cool, I really dugg it. My girlfriend got french toast (because she is a bitch and has to be super toned and fit with out working out or eating good) w"
+        },
+        {
+          "business_name": "Amala Joint UI Gate",
+          "category": "Street Food",
+          "rating": 4,
+          "review": "I went thier on a new wave night. I dont drink so its hard to find somewhere gay that I can enjoy sober. They had bitchin 80's music and had a good guy/girl ratio. Some were straight but I like that, its nice when breeders what to hang out just for the fact that they wnat to hang out and dont care if your gay/straight. They also have a pool table wich is a rare find in gay clubs in az. I liked it "
+        }
+      ]
+    },
+    {
+      "user_id": "8CNEh7fSbLwDuAKhLjDPKQ",
+      "name": "User 8CNEh7",
+      "location": "Abuja, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Buka Teria Wuse II",
+          "category": "Nigerian Cuisine",
+          "rating": 2,
+          "review": "Eh... the food was good but not something I'd crave? I had a chicken/swiss panini that evidently came with corn on it? EDIT: (actually it was the Adobe Panini: \"Mesquite turkey, fresh mozzarella, green peppers, corn relish and chipotle mayo\". I got called out that there wasn't anything on the menu I said I ate, got it a little wrong but the review remains the same regardless. Here you go Bob M.) S"
+        },
+        {
+          "business_name": "Frankie's Restaurant",
+          "category": "Bakery & Cafe",
+          "rating": 2,
+          "review": "Stopped by one night late, only one guy working, probably the manager/owner based on him being on the phone and looking like he wanted to gtfo dodge attitude and not wearing anything quiznos related like most workers do... Food... subpar... it's a chain... it's hard to fuck up... but he did. There was no care in the making of the sub... I pretty much watched him throw it together, run it through t"
+        }
+      ]
+    },
+    {
+      "user_id": "Cp-PV8rsypbO-xBrQ6KmQg",
+      "name": "User Cp-PV8",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "KFC Ikeja City Mall",
+          "category": "Fast Food",
+          "rating": 3,
+          "review": "The place was pretty empty - even for an off night. The service was pretty decent, but like I said - it was empty. I've been in here a few times, but never when it's busy. The prices don't impress me, but I'd say you get a pretty decent pour for the money. One thing I'd like to point out - a 1.5L bottle of Dom is less than 1000 bucks, but a 3.0L bottle of Dom is 3500. If you're a fucking idiot, ge"
+        },
+        {
+          "business_name": "Place Fast Food",
+          "category": "Fast Food",
+          "rating": 3,
+          "review": "This place is the least douche-filled club of the douche tour in downtown Scottsdale. It is a huge club and in some ways it's like an anchor store in a mall - like Dillards or JC Penny. You can get a little bit of everything you want in one place... It's got its share of plastics and douchebags, but also has a number of college kids venturing away from Tempe to go dancing. The place itself is kind"
+        }
+      ]
+    },
+    {
+      "user_id": "Ps1Db9zOatoF_76FZNO5CQ",
+      "name": "User Ps1Db9",
+      "location": "Abuja, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Barbeque Village",
+          "category": "Grills",
+          "rating": 3,
+          "review": "Amanda B organized a UYE for Dim Sum here today. They do Dim Sum from a menu instead of carts and it works really well. They also have a picture menu to look at with many of the items on it so folks like me can have a better idea what to order just by picking the picture of stuff they liked on a prior trip. We were pretty much the only folks there for quite a while and we had the full attention of"
+        },
+        {
+          "business_name": "Suya Spot Garki",
+          "category": "Street Food",
+          "rating": 4,
+          "review": "I was one of a party of 13 for a birthday party on Saturday night. Yep, I was odd man out again and in more ways than one as I will note in a bit. We got started a bit after 7 and first we got our drinks and spent some time chatting and reading the menus. Most of the folks there had been there several times before. Everybody but me wanted pizza and wings so I ordered fettuccine Alfredo ($18.95) wi"
+        }
+      ]
+    },
+    {
+      "user_id": "UBIeuiLY9PobybSgo0qhWw",
+      "name": "User UBIeui",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Street Grill Yaba",
+          "category": "Street Food",
+          "rating": 4,
+          "review": "Ok I have waited long enough to review Postinos...I have been here more than any other restaurant since I moved to AZ so I had to share my view on this place! I go to the Arcadia location most often so my review is based off of that.. This is me any one of my best gals Sunday spot...we go maybe twice a month and enjoy the Reggae, $5 Glasses of wine and of course the BRUSCHETTA!!...All of my fellow"
+        },
+        {
+          "business_name": "Crunchies Fried Chicken",
+          "category": "Fast Food",
+          "rating": 4,
+          "review": "I remember my first visit to Delux,it was before heading over to shop in the craziness that is Last Chance. Anyway my friend suggested this spot because of their sweet potato fries...that's all she had to say, I was down!! It's a trendy little spot inside of a strip mall, it kinda looked outta place but it stood out in a good way. I ordered the sweet potato fries they were yummy (I like mine a lit"
+        }
+      ]
+    },
+    {
+      "user_id": "hq0WUfau1Mh3GyHn8oVdNQ",
+      "name": "User hq0WUf",
+      "location": "Lagos, Nigeria",
+      "profile": "Active Yelp reviewer with strong opinions on food and service",
+      "review_history": [
+        {
+          "business_name": "Genesis Deluxe Cinemas Restaurant",
+          "category": "Continental",
+          "rating": 4,
+          "review": "My eyebrows definitely needed some love...I've ignored them so long that they're starting to resemble 2 fat caterpillars and I'll soon risk a uni-brow if something isn't done stat. Did you say FREE waxing? I'm a sucker for free stuff. The center is very sterile - not only in a clean and sanitary way, but also void of any personality. It's a chain though and they're trying to go for the 'European' "
+        },
+        {
+          "business_name": "Jevenik Restaurant GRA",
+          "category": "Nigerian Cuisine",
+          "rating": 4,
+          "review": "Went for the free \"Movies in the Park Free Family Movie Series\" last night and really enjoyed myself. The park has a giant inflatable movie screen where they show family movies every Friday night at 7 in the early spring months. Get there early to get a spot closer to the screen and bring a picnic blanket to relax on. It got a little chilly later in the evening, I would bring a blanket to snuggle "
+        }
+      ]
+    }
+  ],
+  "businesses": [
+    {
+      "business_id": "QVR7dsvBeg8xFt9B-vd1BA",
+      "name": "Chicken Republic Lekki",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "24qSrF_XOrvaHDBy-gLIQg",
+      "name": "Yellow Chilli Victoria Island",
+      "category": "Nigerian Cuisine",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Nigerian Cuisine restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "j0Uc-GuOe-x9_N_IK1KPpA",
+      "name": "Suya Spot Garki",
+      "category": "Street Food",
+      "city": "Abuja",
+      "rating_avg": 3.0,
+      "description": "Street Food restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "RBiiGw8c7j-0a8nk35JO3w",
+      "name": "Buka Teria Wuse II",
+      "category": "Nigerian Cuisine",
+      "city": "Abuja",
+      "rating_avg": 1.0,
+      "description": "Nigerian Cuisine restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "U8VA-RW6LYOhxR-Ygi6eDw",
+      "name": "Amala Joint UI Gate",
+      "category": "Street Food",
+      "city": "Ibadan",
+      "rating_avg": 5.0,
+      "description": "Street Food restaurant located in Ibadan, Nigeria"
+    },
+    {
+      "business_id": "Lt-dQ0kUWFm0nDgLwdEo_g",
+      "name": "Jevenik Restaurant GRA",
+      "category": "Nigerian Cuisine",
+      "city": "Port Harcourt",
+      "rating_avg": 4.0,
+      "description": "Nigerian Cuisine restaurant located in Port Harcourt, Nigeria"
+    },
+    {
+      "business_id": "nXKwzVKJCtIGd4HxXgjdnQ",
+      "name": "Nok by Alara",
+      "category": "Fine Dining",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Fine Dining restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "j7XuypdW_w935NhjbvKPQw",
+      "name": "Tastee Fried Chicken Surulere",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "JuBygU4XDjqSeW9okyvbsQ",
+      "name": "Mr Biggs Ikeja",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "K9fIADfO_zKFPFm75A1Hxw",
+      "name": "Domino's Pizza VI",
+      "category": "Pizza",
+      "city": "Lagos",
+      "rating_avg": 1.0,
+      "description": "Pizza restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "01cEFI5Pq_RyEwM3GSTopQ",
+      "name": "Genesis Deluxe Cinemas Restaurant",
+      "category": "Continental",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Continental restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "Br9Ruk5yY9ui8OiKChWdgw",
+      "name": "Kilimanjaro Restaurant",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "_fTwf7Oo5DqiCpgEhDZ9VA",
+      "name": "Mama Cass Restaurant",
+      "category": "Nigerian Cuisine",
+      "city": "Lagos",
+      "rating_avg": 3.0,
+      "description": "Nigerian Cuisine restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "LWtoosGlzTOp8A73Jh7cQw",
+      "name": "Okinawa Asian Bistro",
+      "category": "Asian Fusion",
+      "city": "Port Harcourt",
+      "rating_avg": 4.0,
+      "description": "Asian Fusion restaurant located in Port Harcourt, Nigeria"
+    },
+    {
+      "business_id": "Y_TtMiH_nx33FH4C48XhsA",
+      "name": "Tandoor Indian Restaurant",
+      "category": "Indian",
+      "city": "Abuja",
+      "rating_avg": 5.0,
+      "description": "Indian restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "rIonUa02zMz_ki8eF-Adug",
+      "name": "Sky Restaurant & Lounge",
+      "category": "Fine Dining",
+      "city": "Lagos",
+      "rating_avg": 2.0,
+      "description": "Fine Dining restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "h8rqIokh6EkM4flR9CjxbA",
+      "name": "Bukka Hut",
+      "category": "Nigerian Cuisine",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Nigerian Cuisine restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "AgJbkqR-wre409if4fTbWQ",
+      "name": "KFC Ikeja City Mall",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "o-OV2LkJxpcCHmI_d4TZiQ",
+      "name": "Silverbird Restaurant",
+      "category": "Continental",
+      "city": "Abuja",
+      "rating_avg": 5.0,
+      "description": "Continental restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "2TWGIhh6y-f9fe-Q6kySGQ",
+      "name": "Pepperoni Restaurant",
+      "category": "Pizza",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Pizza restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "eIxSLxzIlfExI6vgAbn2JA",
+      "name": "Jevinik Wuse",
+      "category": "Nigerian Cuisine",
+      "city": "Abuja",
+      "rating_avg": 5.0,
+      "description": "Nigerian Cuisine restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "e8Eke5v8pXw-PuRCu2uPjg",
+      "name": "Barcelos Lekki",
+      "category": "Grills",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Grills restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "YEOnspVAXguZEJp0iKLq8w",
+      "name": "Hard Rock Cafe Lagos",
+      "category": "American",
+      "city": "Lagos",
+      "rating_avg": 1.0,
+      "description": "American restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "I5ypI3aYbbTL8dAjnI3PDw",
+      "name": "Cactus Restaurant VI",
+      "category": "Continental",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Continental restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "jJhNOhuGpIsJX5SEUFFWYQ",
+      "name": "Spice Route Restaurant",
+      "category": "Indian",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Indian restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "W-9YqWhkfeK-K3xGFvFeuw",
+      "name": "Terra Kulture Restaurant",
+      "category": "Nigerian Cuisine",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Nigerian Cuisine restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "z7W0sUbrVi2k6R2BR5jtzw",
+      "name": "Aboki Fresh Smoothies",
+      "category": "Cafe",
+      "city": "Lagos",
+      "rating_avg": 1.0,
+      "description": "Cafe restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "puy0PzIcCgR3KWJI7llBFQ",
+      "name": "Crunchies Fried Chicken",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "siFw3cNWKfFL14K3aF2Fiw",
+      "name": "Tantalizers Festac",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 2.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "0AZiq_OMKs3I9lTmwd5PSg",
+      "name": "Barbeque Village",
+      "category": "Grills",
+      "city": "Abuja",
+      "rating_avg": 2.0,
+      "description": "Grills restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "ZdQbDVZWDsO-d7q2qW8E3A",
+      "name": "Zinnia Restaurant Transcorp",
+      "category": "Fine Dining",
+      "city": "Abuja",
+      "rating_avg": 1.0,
+      "description": "Fine Dining restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "m5i2s4k994c8QumJPRNjGw",
+      "name": "Place Fast Food",
+      "category": "Fast Food",
+      "city": "Lagos",
+      "rating_avg": 1.0,
+      "description": "Fast Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "dzncF6n6MHJLXUo4_J6eig",
+      "name": "Calabar Kitchen",
+      "category": "Nigerian Cuisine",
+      "city": "Lagos",
+      "rating_avg": 3.0,
+      "description": "Nigerian Cuisine restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "AyvyWENKpPBOFnFFkZuAyQ",
+      "name": "Seafood Shack VI",
+      "category": "Seafood",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Seafood restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "Vvh2Hd4SsZjEEfKLNKAEWw",
+      "name": "Tortoise Restaurant",
+      "category": "Continental",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Continental restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "i1zU7n6vtDZfHBumPsHLFw",
+      "name": "Frankie's Restaurant",
+      "category": "Bakery & Cafe",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Bakery & Cafe restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "-AAig9FG0s8gYE4f8GfowQ",
+      "name": "Bogobiri House",
+      "category": "Nigerian Cuisine",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Nigerian Cuisine restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "Y-9dJvw-J2d9QKfuL7mKgA",
+      "name": "Bungalow Beach Bar",
+      "category": "Bar & Grill",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Bar & Grill restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "5VMajxduxfLPSyQkVFKESg",
+      "name": "Lagoon Restaurant",
+      "category": "Fine Dining",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Fine Dining restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "tBpcKHlBJTwRLq6Q2gv1KA",
+      "name": "Rodizzio Brazilian Steakhouse",
+      "category": "Steakhouse",
+      "city": "Lagos",
+      "rating_avg": 2.0,
+      "description": "Steakhouse restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "Y3a3RkR97J_ReiKgiMXeJg",
+      "name": "Churrasco Restaurant",
+      "category": "Steakhouse",
+      "city": "Abuja",
+      "rating_avg": 3.0,
+      "description": "Steakhouse restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "o1GIYYZJjM6nM03fQs_uEQ",
+      "name": "Wakkis Indian Restaurant",
+      "category": "Indian",
+      "city": "Kano",
+      "rating_avg": 1.0,
+      "description": "Indian restaurant located in Kano, Nigeria"
+    },
+    {
+      "business_id": "3utuLtXNNvXAzwTgpyD9vQ",
+      "name": "Zankli Restaurant",
+      "category": "Nigerian Cuisine",
+      "city": "Kano",
+      "rating_avg": 1.0,
+      "description": "Nigerian Cuisine restaurant located in Kano, Nigeria"
+    },
+    {
+      "business_id": "PoRYjYUSjmeWM1WLsx_45w",
+      "name": "Liquid Assets Bar",
+      "category": "Bar & Grill",
+      "city": "Port Harcourt",
+      "rating_avg": 3.0,
+      "description": "Bar & Grill restaurant located in Port Harcourt, Nigeria"
+    },
+    {
+      "business_id": "52QtjHlHoa7V611bOvv1aw",
+      "name": "Oriental Hotel Restaurant",
+      "category": "Fine Dining",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Fine Dining restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "qyNtVViurIcChc35mfYIEw",
+      "name": "Sheraton Hotel Bukka",
+      "category": "Nigerian Cuisine",
+      "city": "Abuja",
+      "rating_avg": 4.0,
+      "description": "Nigerian Cuisine restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "rkGPf4cbyUJqHgKZPvaTnw",
+      "name": "Sizzler Restaurant",
+      "category": "Continental",
+      "city": "Lagos",
+      "rating_avg": 4.0,
+      "description": "Continental restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "5o5MLNPmAeakGgdqeGyMvw",
+      "name": "Street Grill Yaba",
+      "category": "Street Food",
+      "city": "Lagos",
+      "rating_avg": 5.0,
+      "description": "Street Food restaurant located in Lagos, Nigeria"
+    },
+    {
+      "business_id": "YEQkTCmphjr6XKPh4m93AQ",
+      "name": "Suya Republic Maitama",
+      "category": "Street Food",
+      "city": "Abuja",
+      "rating_avg": 4.0,
+      "description": "Street Food restaurant located in Abuja, Nigeria"
+    },
+    {
+      "business_id": "0x0voDMo5yMQI2601ovjOQ",
+      "name": "Glover Court Suya",
+      "category": "Street Food",
+      "city": "Lagos",
+      "rating_avg": 1.0,
+      "description": "Street Food restaurant located in Lagos, Nigeria"
+    }
+  ]
+}

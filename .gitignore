@@ -1,0 +1,11 @@
+.env
+__pycache__
+*.pyc
+*.csv
+*.json
+!app/data/yelp_sample.json
+!app/data/amazon_sample.json
+!app/data/goodreads_sample.json
+yelp_business.json
+yelp_academic_dataset_business.json
+extract_data.py

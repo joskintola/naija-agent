@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naija Agent — DSN x BCT Hackathon 3.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #006400 0%, #008000 50%, #004d00 100%);
+            padding: 24px 40px;
+            border-bottom: 3px solid #FFD700;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 { font-size: 26px; font-weight: 800; color: #FFD700; }
+        header p { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+
+        .badges { display: flex; gap: 8px; }
+        .badge {
+            background: rgba(255,215,0,0.15);
+            border: 1px solid #FFD700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        .tabs {
+            background: #111;
+            border-bottom: 1px solid #222;
+            padding: 0 40px;
+            display: flex;
+        }
+
+        .tab {
+            padding: 16px 28px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab.active { color: #FFD700; border-bottom-color: #FFD700; }
+        .tab:hover { color: #fff; }
+
+        .container {
+            max-width: 1100px;
+            margin: 36px auto;
+            padding: 0 24px;
+        }
+
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: #151515;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 4px;
+        }
+
+        .card .subtitle {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 6px;
+            margin-top: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 11px 14px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+            transition: border 0.2s;
+            font-family: inherit;
+        }
+
+        select:focus, input:focus, textarea:focus { border-color: #FFD700; }
+        textarea { resize: vertical; min-height: 70px; }
+
+        select option { background: #1e1e1e; }
+
+        .btn {
+            margin-top: 18px;
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #006400, #008000);
+            color: #FFD700;
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover { opacity: 0.85; }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .user-card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .user-card h3 { font-size: 15px; font-weight: 700; color: #FFD700; margin-bottom: 4px; }
+        .user-card p { font-size: 12px; color: #777; margin-bottom: 8px; }
+
+        .review-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+        .chip {
+            background: #222;
+            border: 1px solid #333;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        .chip span { color: #FFD700; font-weight: 700; }
+
+        .result-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 24px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .result-box.show { display: block; }
+
+        .result-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .stars-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .stars { font-size: 24px; }
+
+        .confidence-badge {
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .confidence-HIGH { background: rgba(0,128,0,0.2); color: #00cc00; border: 1px solid #006400; }
+        .confidence-MEDIUM { background: rgba(255,165,0,0.2); color: #FFA500; border: 1px solid #cc8400; }
+        .confidence-LOW { background: rgba(255,0,0,0.2); color: #ff6666; border: 1px solid #cc0000; }
+
+        .review-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ccc;
+            font-style: italic;
+            border-left: 3px solid #FFD700;
+            padding-left: 14px;
+            margin-bottom: 14px;
+        }
+
+        .reasoning-box {
+            background: #111;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .reasoning-box strong { color: #888; }
+
+        .rec-item {
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 10px;
+            border-left: 3px solid #006400;
+        }
+
+        .rec-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .rec-name { font-size: 14px; font-weight: 700; color: #FFD700; }
+        .rec-category { font-size: 11px; color: #555; }
+
+        .match-score {
+            background: #006400;
+            color: #FFD700;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .rec-reason { font-size: 12px; color: #888; line-height: 1.5; }
+
+        .insight-box {
+            background: rgba(255,215,0,0.05);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .insight-box .insight-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .insight-box p { font-size: 13px; color: #aaa; line-height: 1.6; }
+
+        .loading {
+            text-align: center;
+            padding: 24px;
+            color: #555;
+            font-size: 13px;
+            display: none;
+        }
+
+        .loading.show { display: block; }
+
+        .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #222;
+            border-top-color: #FFD700;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .pattern-item {
+            background: #111;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .pattern-item .val {
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFD700;
+        }
+
+        .pattern-item .lbl {
+            font-size: 10px;
+            color: #555;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .multiturn-history {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #111;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .multiturn-history.show { display: block; }
+
+        .turn { margin-bottom: 10px; font-size: 12px; }
+        .turn.user { color: #FFD700; }
+        .turn.agent { color: #aaa; }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            header { padding: 16px 20px; }
+            .tabs { padding: 0 16px; }
+            .container { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div>
+            <h1>🇳🇬 Naija Agent</h1>
+            <p>LLM-powered User Modelling & Personalised Recommendation System</p>
+        </div>
+        <div class="badges">
+            <div class="badge">DSN × BCT 3.0</div>
+            <div class="badge">Yelp · Amazon · Goodreads</div>
+        </div>
+    </div>
+</header>
+
+<div class="tabs">
+    <div class="tab active" onclick="switchTab('task-a', this)">Task A — User Modeling</div>
+    <div class="tab" onclick="switchTab('task-b', this)">Task B — Recommender</div>
+    <div class="tab" onclick="switchTab('users', this)">User Profiles</div>
+</div>
+
+<div class="container">
+
+    <!-- ── TASK A ─────────────────────────────────────────── -->
+    <div class="panel active" id="task-a">
+        <div class="two-col">
+            <div>
+                <div class="card">
+                    <h2>User Review Simulator</h2>
+                    <p class="subtitle">Select a real user from our dataset. The agent studies their full review history across Yelp, Amazon, and Goodreads — then simulates how they would review an unseen item.</p>
+
+                    <label>Select User</label>
+                    <select id="user-select-a" onchange="loadUserCard('a')">
+                        <option value="">Loading users...</option>
+                    </select>
+
+                    <div id="user-card-a" class="user-card" style="display:none; margin-top:12px;">
+                        <h3 id="uca-name"></h3>
+                        <p id="uca-profile"></p>
+                        <div class="review-chips">
+                            <div class="chip">Yelp <span id="uca-yelp"></span></div>
+                            <div class="chip">Amazon <span id="uca-amazon"></span></div>
+                            <div class="chip">Goodreads <span id="uca-goodreads"></span></div>
+                        </div>
+                        <div class="pattern-grid" id="uca-pattern" style="margin-top:12px;"></div>
+                    </div>
+
+                    <label>Item Name</label>
+                    <input type="text" id="item-name" placeholder="e.g. Chicken Republic Lekki, Sony Headphones, Atomic Habits">
+
+                    <label>Item Category</label>
+                    <input type="text" id="item-category" placeholder="e.g. Fast Food, Electronics, Self Development">
+
+                    <label>Item Description</label>
+                    <textarea id="item-desc" placeholder="e.g. Popular Nigerian fast food chain known for fried chicken and chips, located in Lekki Lagos"></textarea>
+
+                    <button class="btn" onclick="generateReview()">Simulate This User's Review</button>
+                </div>
+            </div>
+
+            <div>
+                <div class="loading" id="loading-a">
+                    <span class="spinner"></span> Agent is analysing user behaviour...
+                </div>
+
+                <div class="result-box show" id="result-a" style="background:#111; border-color:#1a1a1a;">
+                    <div class="result-label">Simulated Review Will Appear Here</div>
+                    <p style="color:#333; font-size:13px;">Select a user and an item, then click Simulate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── TASK B ─────────────────────────────────────────── -->
+    <div class="panel" id="task-b">
+        <div class="two-col">
+            <div>
+                <div class="card">
+                    <h2>Personalised Recommender</h2>
+                    <p class="subtitle">The agent reasons about user behaviour across food, products, and books — then delivers ranked, cross-domain recommendations with match scores.</p>
+
+                    <label>Select User</label>
+                    <select id="user-select-b" onchange="loadUserCard('b')">
+                        <option value="">Loading users...</option>
+                    </select>
+
+                    <div id="user-card-b" class="user-card" style="display:none; margin-top:12px;">
+                        <h3 id="ucb-name"></h3>
+                        <p id="ucb-profile"></p>
+                        <div class="review-chips">
+                            <div class="chip">Yelp <span id="ucb-yelp"></span></div>
+                            <div class="chip">Amazon <span id="ucb-amazon"></span></div>
+                            <div class="chip">Goodreads <span id="ucb-goodreads"></span></div>
+                        </div>
+                    </div>
+
+                    <label>Category</label>
+                    <input type="text" id="rec-category" placeholder="e.g. Restaurants in Lagos, Books, Nigerian Music, Electronics">
+
+                    <label>Additional Context (optional)</label>
+                    <textarea id="rec-context" placeholder="e.g. I am on a budget this month, I want something for a date night, recommend something I have never tried"></textarea>
+
+                    <button class="btn" onclick="getRecommendations()">Get Recommendations</button>
+
+                    <div class="multiturn-history" id="convo-history"></div>
+
+                    <div id="followup-section" style="display:none; margin-top:12px;">
+                        <label>Refine Your Request</label>
+                        <input type="text" id="followup-input" placeholder="e.g. Only budget friendly options, I prefer outdoor seating...">
+                        <button class="btn" style="margin-top:10px;" onclick="refineRecommendations()">Refine Recommendations</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="loading" id="loading-b">
+                    <span class="spinner"></span> Agent is reasoning about your preferences...
+                </div>
+
+                <div class="result-box show" id="result-b" style="background:#111; border-color:#1a1a1a;">
+                    <div class="result-label">Recommendations Will Appear Here</div>
+                    <p style="color:#333; font-size:13px;">Select a user and category, then click Get Recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── USER PROFILES ──────────────────────────────────── -->
+    <div class="panel" id="users">
+        <div class="card">
+            <h2>All User Profiles</h2>
+            <p class="subtitle">Real users extracted from Yelp, Amazon Reviews, and Goodreads datasets.</p>
+        </div>
+        <div id="users-grid"></div>
+    </div>
+
+</div>
+
+<script>
+    let allUsers = [];
+    let conversationHistory = [];
+
+    // ── Load users on startup ──────────────────────────────
+    async function loadUsers() {
+        try {
+            const res = await fetch('/users');
+            const data = await res.json();
+            allUsers = data.users;
+
+            const optionsHTML = allUsers.map(u =>
+                `<option value="${u.user_id}">${u.name} — ${u.location} (${u.total_reviews} reviews)</option>`
+            ).join('');
+
+            document.getElementById('user-select-a').innerHTML = '<option value="">— Select a user —</option>' + optionsHTML;
+            document.getElementById('user-select-b').innerHTML = '<option value="">— Select a user (or leave empty for cold start) —</option>' + optionsHTML;
+
+            renderUsersGrid();
+        } catch (e) {
+            console.error('Failed to load users', e);
+        }
+    }
+
+    function renderUsersGrid() {
+        const grid = document.getElementById('users-grid');
+        grid.innerHTML = allUsers.map(u => `
+            <div class="user-card">
+                <h3>${u.name}</h3>
+                <p>${u.location} · ${u.profile || 'Dataset user'}</p>
+                <div class="review-chips">
+                    <div class="chip">Yelp <span>${u.yelp_reviews} reviews</span></div>
+                    <div class="chip">Amazon <span>${u.amazon_reviews} reviews</span></div>
+                    <div class="chip">Goodreads <span>${u.goodreads_reviews} reviews</span></div>
+                    <div class="chip">Total <span>${u.total_reviews}</span></div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function loadUserCard(side) {
+        const selectId = side === 'a' ? 'user-select-a' : 'user-select-b';
+        const userId = document.getElementById(selectId).value;
+        if (!userId) return;
+
+        const user = allUsers.find(u => u.user_id === userId);
+        if (!user) return;
+
+        if (side === 'a') {
+            document.getElementById('uca-name').textContent = user.name;
+            document.getElementById('uca-profile').textContent = user.profile || user.location;
+            document.getElementById('uca-yelp').textContent = user.yelp_reviews + ' reviews';
+            document.getElementById('uca-amazon').textContent = user.amazon_reviews + ' reviews';
+            document.getElementById('uca-goodreads').textContent = user.goodreads_reviews + ' reviews';
+            document.getElementById('user-card-a').style.display = 'block';
+            loadRatingPattern(userId);
+        } else {
+            document.getElementById('ucb-name').textContent = user.name;
+            document.getElementById('ucb-profile').textContent = user.profile || user.location;
+            document.getElementById('ucb-yelp').textContent = user.yelp_reviews + ' reviews';
+            document.getElementById('ucb-amazon').textContent = user.amazon_reviews + ' reviews';
+            document.getElementById('ucb-goodreads').textContent = user.goodreads_reviews + ' reviews';
+            document.getElementById('user-card-b').style.display = 'block';
+        }
+    }
+
+    async function loadRatingPattern(userId) {
+        try {
+            const res = await fetch(`/users/${userId}`);
+            const data = await res.json();
+            const p = data.rating_pattern;
+            document.getElementById('uca-pattern').innerHTML = `
+                <div class="pattern-item"><div class="val">${p.avg}</div><div class="lbl">Avg Rating</div></div>
+                <div class="pattern-item"><div class="val">${p.count}</div><div class="lbl">Total Reviews</div></div>
+                <div class="pattern-item"><div class="val">${p.min}–${p.max}</div><div class="lbl">Rating Range</div></div>
+            `;
+        } catch(e) {}
+    }
+
+    // ── Tab switching ──────────────────────────────────────
+    function switchTab(tabId, el) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        el.classList.add('active');
+    }
+
+    function getStars(rating) {
+        const n = parseInt(rating) || 3;
+        return '⭐'.repeat(n);
+    }
+
+    // ── Task A — Generate Review ───────────────────────────
+    async function generateReview() {
+        const userId = document.getElementById('user-select-a').value;
+        const itemName = document.getElementById('item-name').value.trim();
+        const itemCategory = document.getElementById('item-category').value.trim();
+        const itemDesc = document.getElementById('item-desc').value.trim();
+
+        if (!userId) { alert('Please select a user first.'); return; }
+        if (!itemName || !itemCategory) { alert('Please fill in item name and category.'); return; }
+
+        document.getElementById('loading-a').classList.add('show');
+        document.getElementById('result-a').classList.remove('show');
+        document.querySelector('#task-a .btn').disabled = true;
+
+        try {
+            const res = await fetch('/generate-review', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id: userId,
+                    item_name: itemName,
+                    item_category: itemCategory,
+                    item_description: itemDesc || itemName
+                })
+            });
+
+            const data = await res.json();
+            const resultBox = document.getElementById('result-a');
+
+            resultBox.innerHTML = `
+                <div class="result-label">Simulated Review — ${data.user_name}</div>
+                <div class="stars-row">
+                    <div class="stars">${getStars(data.simulated_rating)}</div>
+                    <div style="font-size:16px; font-weight:800; color:#FFD700;">${data.simulated_rating}/5</div>
+                    <div class="confidence-badge confidence-${data.confidence}">${data.confidence} CONFIDENCE</div>
+                </div>
+                <div class="review-text">"${data.simulated_review}"</div>
+                <div class="reasoning-box">
+                    <strong>Agent Reasoning:</strong> ${data.reasoning}
+                </div>
+                <div class="pattern-grid" style="margin-top:14px;">
+                    <div class="pattern-item"><div class="val">${data.user_rating_pattern.avg}</div><div class="lbl">User Avg</div></div>
+                    <div class="pattern-item"><div class="val">${data.user_rating_pattern.count}</div><div class="lbl">Reviews</div></div>
+                    <div class="pattern-item"><div class="val">${data.simulated_rating}</div><div class="lbl">Simulated</div></div>
+                </div>
+            `;
+
+            resultBox.style.background = '#1a1a1a';
+            resultBox.style.borderColor = '#2a2a2a';
+            resultBox.classList.add('show');
+        } catch (e) {
+            alert('Something went wrong. Check your API key and try again.');
+        }
+
+        document.getElementById('loading-a').classList.remove('show');
+        document.querySelector('#task-a .btn').disabled = false;
+    }
+
+    // ── Task B — Recommendations ───────────────────────────
+    async function getRecommendations() {
+        const userId = document.getElementById('user-select-b').value;
+        const category = document.getElementById('rec-category').value.trim();
+        const context = document.getElementById('rec-context').value.trim();
+
+        if (!category) { alert('Please enter a category.'); return; }
+
+        conversationHistory = [];
+        if (context) {
+            conversationHistory.push({ role: 'user', content: `Category: ${category}. Context: ${context}` });
+        }
+
+        await fetchRecommendations(userId, category, context);
+    }
+
+    async function refineRecommendations() {
+        const userId = document.getElementById('user-select-b').value;
+        const category = document.getElementById('rec-category').value.trim();
+        const followup = document.getElementById('followup-input').value.trim();
+
+        if (!followup) { alert('Please enter your refinement request.'); return; }
+
+        conversationHistory.push({ role: 'user', content: followup });
+        await fetchRecommendations(userId, category, followup);
+        document.getElementById('followup-input').value = '';
+    }
+
+    async function fetchRecommendations(userId, category, context) {
+        document.getElementById('loading-b').classList.add('show');
+        document.getElementById('result-b').classList.remove('show');
+
+        try {
+            const res = await fetch('/get-recommendations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id: userId || 'cold_start',
+                    category: category,
+                    context: context,
+                    conversation_history: conversationHistory
+                })
+            });
+
+            const data = await res.json();
+
+            const recsHTML = data.recommendations.map((r, i) => `
+                <div class="rec-item">
+                    <div class="rec-header">
+                        <div>
+                            <div class="rec-name">${i + 1}. ${r.name}</div>
+                            <div class="rec-category">${r.category}</div>
+                        </div>
+                        <div class="match-score">Match: ${r.match_score}/10</div>
+                    </div>
+                    <div class="rec-reason">${r.reason}</div>
+                </div>
+            `).join('');
+
+            const coldStartBadge = data.is_cold_start
+                ? '<div class="chip" style="margin-bottom:12px; display:inline-block;">⚡ Cold Start Mode</div>'
+                : '';
+
+            const resultBox = document.getElementById('result-b');
+            resultBox.innerHTML = `
+                <div class="result-label">Personalised Recommendations</div>
+                ${coldStartBadge}
+                ${recsHTML}
+                ${data.agent_insight ? `
+                <div class="insight-box">
+                    <div class="insight-label">🧠 Agent Insight</div>
+                    <p>${data.agent_insight}</p>
+                </div>` : ''}
+            `;
+
+            resultBox.style.background = '#1a1a1a';
+            resultBox.style.borderColor = '#2a2a2a';
+            resultBox.classList.add('show');
+
+            conversationHistory.push({ role: 'assistant', content: data.recommendations.map(r => r.name).join(', ') });
+
+            document.getElementById('followup-section').style.display = 'block';
+
+            const historyEl = document.getElementById('convo-history');
+            if (conversationHistory.length > 1) {
+                historyEl.classList.add('show');
+                historyEl.innerHTML = conversationHistory.map(t =>
+                    `<div class="turn ${t.role}"><strong>${t.role === 'user' ? 'You' : 'Agent'}:</strong> ${t.content}</div>`
+                ).join('');
+            }
+
+        } catch (e) {
+            alert('Something went wrong. Check your API key and try again.');
+        }
+
+        document.getElementById('loading-b').classList.remove('show');
+    }
+
+    // ── Init ───────────────────────────────────────────────
+    loadUsers();
+</script>
+
+</body>
+</html>
