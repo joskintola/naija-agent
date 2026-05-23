@@ -22,6 +22,7 @@ Naija Agent is a two-task LLM-based system that models Nigerian user behaviour a
 
 ## 🏗️ Architecture
 ---
+
 naija-agent/
 ├── app/
 │   ├── main.py          # FastAPI endpoints — Task A and Task B
