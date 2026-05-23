@@ -1,758 +1,1428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naija Agent — DSN x BCT Hackathon 3.0</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naija Agent — DSN × BCT Hackathon 3.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:       #0A5C2B;
+    --green-light: #0E7A39;
+    --green-pale:  #E8F5ED;
+    --green-mid:   #C8E6D4;
+    --gold:        #B8860B;
+    --gold-light:  #F5E6B3;
+    --black:       #0D0D0D;
+    --ink:         #1C1C1E;
+    --mid:         #6B7280;
+    --soft:        #9CA3AF;
+    --line:        #E5E7EB;
+    --bg:          #FAFAFA;
+    --white:       #FFFFFF;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+    --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.10), 0 12px 32px rgba(0,0,0,0.06);
+  }
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            min-height: 100vh;
-        }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        header {
-            background: linear-gradient(135deg, #006400 0%, #008000 50%, #004d00 100%);
-            padding: 24px 40px;
-            border-bottom: 3px solid #FFD700;
-        }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
 
-        .header-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+  /* ── TOP BAR ──────────────────────────────── */
+  .topbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
-        header h1 { font-size: 26px; font-weight: 800; color: #FFD700; }
-        header p { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-        .badges { display: flex; gap: 8px; }
-        .badge {
-            background: rgba(255,215,0,0.15);
-            border: 1px solid #FFD700;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            color: #FFD700;
-            font-weight: 600;
-        }
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--green);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFD700;
+    letter-spacing: -0.5px;
+  }
 
-        .tabs {
-            background: #111;
-            border-bottom: 1px solid #222;
-            padding: 0 40px;
-            display: flex;
-        }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: -0.3px;
+  }
 
-        .tab {
-            padding: 16px 28px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: #666;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-        }
+  .logo-sub {
+    font-size: 11px;
+    color: var(--soft);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
 
-        .tab.active { color: #FFD700; border-bottom-color: #FFD700; }
-        .tab:hover { color: #fff; }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
 
-        .container {
-            max-width: 1100px;
-            margin: 36px auto;
-            padding: 0 24px;
-        }
+  .status-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--mid);
+    font-weight: 500;
+  }
 
-        .panel { display: none; }
-        .panel.active { display: block; }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22C55E;
+    box-shadow: 0 0 0 2px rgba(34,197,94,0.25);
+    animation: pulse 2s infinite;
+  }
 
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(34,197,94,0.25); }
+    50% { box-shadow: 0 0 0 5px rgba(34,197,94,0.10); }
+  }
 
-        .card {
-            background: #151515;
-            border: 1px solid #222;
-            border-radius: 16px;
-            padding: 28px;
-            margin-bottom: 24px;
-        }
+  .badge-hackathon {
+    background: var(--green-pale);
+    border: 1px solid var(--green-mid);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
 
-        .card h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #FFD700;
-            margin-bottom: 4px;
-        }
+  /* ── HERO BANNER ──────────────────────────── */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    padding: 48px 48px 40px;
+  }
 
-        .card .subtitle {
-            font-size: 12px;
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
 
-        label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: #888;
-            margin-bottom: 6px;
-            margin-top: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
 
-        select, input, textarea {
-            width: 100%;
-            background: #1e1e1e;
-            border: 1px solid #2a2a2a;
-            border-radius: 10px;
-            padding: 11px 14px;
-            color: #fff;
-            font-size: 13px;
-            outline: none;
-            transition: border 0.2s;
-            font-family: inherit;
-        }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
 
-        select:focus, input:focus, textarea:focus { border-color: #FFD700; }
-        textarea { resize: vertical; min-height: 70px; }
+  .hero-desc {
+    font-size: 15px;
+    color: var(--mid);
+    max-width: 580px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
 
-        select option { background: #1e1e1e; }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 28px;
+  }
 
-        .btn {
-            margin-top: 18px;
-            width: 100%;
-            padding: 13px;
-            background: linear-gradient(135deg, #006400, #008000);
-            color: #FFD700;
-            font-size: 14px;
-            font-weight: 700;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            letter-spacing: 0.5px;
-        }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
 
-        .btn:hover { opacity: 0.85; }
-        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
 
-        .user-card {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 16px;
-        }
+  .stat-label {
+    font-size: 11px;
+    color: var(--soft);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
 
-        .user-card h3 { font-size: 15px; font-weight: 700; color: #FFD700; margin-bottom: 4px; }
-        .user-card p { font-size: 12px; color: #777; margin-bottom: 8px; }
+  .stat-divider {
+    width: 1px;
+    background: var(--line);
+    height: 40px;
+    align-self: center;
+  }
 
-        .review-chips { display: flex; gap: 8px; flex-wrap: wrap; }
-        .chip {
-            background: #222;
-            border: 1px solid #333;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 11px;
-            color: #aaa;
-        }
+  .hero-datasets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    min-width: 220px;
+  }
 
-        .chip span { color: #FFD700; font-weight: 700; }
+  .hero-datasets-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--soft);
+    margin-bottom: 4px;
+  }
 
-        .result-box {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 24px;
-            display: none;
-            margin-top: 20px;
-        }
+  .dataset-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+  }
 
-        .result-box.show { display: block; }
+  .dataset-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
 
-        .result-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: #444;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 14px;
-        }
+  /* ── NAV TABS ─────────────────────────────── */
+  .nav-tabs {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+  }
 
-        .stars-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
+  .nav-tab {
+    padding: 16px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--soft);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
 
-        .stars { font-size: 24px; }
+  .nav-tab:hover { color: var(--ink); }
 
-        .confidence-badge {
-            padding: 4px 10px;
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: 700;
-        }
+  .nav-tab.active {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
 
-        .confidence-HIGH { background: rgba(0,128,0,0.2); color: #00cc00; border: 1px solid #006400; }
-        .confidence-MEDIUM { background: rgba(255,165,0,0.2); color: #FFA500; border: 1px solid #cc8400; }
-        .confidence-LOW { background: rgba(255,0,0,0.2); color: #ff6666; border: 1px solid #cc0000; }
+  .tab-badge {
+    background: var(--green-pale);
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
 
-        .review-text {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #ccc;
-            font-style: italic;
-            border-left: 3px solid #FFD700;
-            padding-left: 14px;
-            margin-bottom: 14px;
-        }
+  /* ── MAIN LAYOUT ──────────────────────────── */
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 36px 48px;
+  }
 
-        .reasoning-box {
-            background: #111;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 12px;
-            color: #666;
-        }
+  .panel { display: none; }
+  .panel.active { display: block; }
 
-        .reasoning-box strong { color: #888; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
 
-        .rec-item {
-            background: #1e1e1e;
-            border: 1px solid #2a2a2a;
-            border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 10px;
-            border-left: 3px solid #006400;
-        }
+  /* ── CARDS ────────────────────────────────── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s;
+  }
 
-        .rec-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
+  .card:hover { box-shadow: var(--card-shadow-hover); }
 
-        .rec-name { font-size: 14px; font-weight: 700; color: #FFD700; }
-        .rec-category { font-size: 11px; color: #555; }
+  .card-header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
 
-        .match-score {
-            background: #006400;
-            color: #FFD700;
-            padding: 3px 8px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 700;
-        }
+  .card-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
 
-        .rec-reason { font-size: 12px; color: #888; line-height: 1.5; }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
 
-        .insight-box {
-            background: rgba(255,215,0,0.05);
-            border: 1px solid rgba(255,215,0,0.2);
-            border-radius: 10px;
-            padding: 16px;
-            margin-top: 16px;
-        }
+  .card-desc {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.6;
+  }
 
-        .insight-box .insight-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: #FFD700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
+  /* ── FORM ELEMENTS ────────────────────────── */
+  .form-group {
+    margin-top: 16px;
+  }
 
-        .insight-box p { font-size: 13px; color: #aaa; line-height: 1.6; }
+  .form-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--mid);
+    margin-bottom: 6px;
+  }
 
-        .loading {
-            text-align: center;
-            padding: 24px;
-            color: #555;
-            font-size: 13px;
-            display: none;
-        }
+  select, input, textarea {
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--ink);
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    appearance: none;
+  }
 
-        .loading.show { display: block; }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
 
-        .spinner {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 2px solid #222;
-            border-top-color: #FFD700;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
+  select:focus, input:focus, textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(10,92,43,0.08);
+  }
 
-        @keyframes spin { to { transform: rotate(360deg); } }
+  textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
 
-        .pattern-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 12px;
-        }
+  /* ── USER PROFILE CARD ────────────────────── */
+  .user-profile {
+    background: var(--green-pale);
+    border: 1px solid var(--green-mid);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    display: none;
+  }
 
-        .pattern-item {
-            background: #111;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-        }
+  .user-profile.show { display: block; }
 
-        .pattern-item .val {
-            font-size: 20px;
-            font-weight: 800;
-            color: #FFD700;
-        }
+  .user-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
 
-        .pattern-item .lbl {
-            font-size: 10px;
-            color: #555;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
+  .user-loc {
+    font-size: 12px;
+    color: var(--mid);
+    margin-bottom: 10px;
+  }
 
-        .multiturn-history {
-            max-height: 200px;
-            overflow-y: auto;
-            background: #111;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 12px;
-            display: none;
-        }
+  .review-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
 
-        .multiturn-history.show { display: block; }
+  .chip {
+    background: var(--white);
+    border: 1px solid var(--green-mid);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--green);
+    font-weight: 500;
+  }
 
-        .turn { margin-bottom: 10px; font-size: 12px; }
-        .turn.user { color: #FFD700; }
-        .turn.agent { color: #aaa; }
+  .pattern-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+  }
 
-        .section-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: #444;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #1a1a1a;
-        }
+  .pattern-cell {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+  }
 
-        @media (max-width: 768px) {
-            .two-col { grid-template-columns: 1fr; }
-            header { padding: 16px 20px; }
-            .tabs { padding: 0 16px; }
-            .container { padding: 0 16px; }
-        }
-    </style>
+  .pattern-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .pattern-lbl {
+    font-size: 10px;
+    color: var(--soft);
+    font-weight: 500;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── BUTTON ───────────────────────────────── */
+  .btn-primary {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px 20px;
+    background: var(--green);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: var(--green-light); }
+  .btn-primary:active { transform: scale(0.99); }
+  .btn-primary:disabled { background: var(--line); color: var(--soft); cursor: not-allowed; transform: none; }
+
+  .btn-secondary {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px 20px;
+    background: var(--white);
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-secondary:hover { background: var(--green-pale); }
+
+  /* ── RESULT PANEL ─────────────────────────── */
+  .result-panel {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    color: var(--soft);
+  }
+
+  .result-empty-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--bg);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+
+  .result-empty h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--mid);
+  }
+
+  .result-empty p {
+    font-size: 13px;
+    max-width: 260px;
+    line-height: 1.5;
+  }
+
+  .result-content { display: none; flex-direction: column; gap: 20px; }
+  .result-content.show { display: flex; }
+
+  .result-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .result-user {
+    font-size: 12px;
+    color: var(--soft);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .result-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .stars-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .stars-emoji { font-size: 20px; }
+
+  .stars-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .stars-denom {
+    font-size: 13px;
+    color: var(--soft);
+    align-self: flex-end;
+    padding-bottom: 4px;
+  }
+
+  .confidence-tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .conf-HIGH { background: #DCFCE7; color: #166534; }
+  .conf-MEDIUM { background: #FEF3C7; color: #92400E; }
+  .conf-LOW { background: #FEE2E2; color: #991B1B; }
+
+  .review-quote {
+    background: var(--bg);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .reasoning-box {
+    background: var(--gold-light);
+    border: 1px solid rgba(184,134,11,0.2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 12px;
+    color: #78580A;
+    line-height: 1.6;
+  }
+
+  .reasoning-label {
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+    color: var(--gold);
+  }
+
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .metric-cell {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  .metric-lbl {
+    font-size: 10px;
+    color: var(--soft);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  /* ── RECOMMENDATION ITEMS ─────────────────── */
+  .rec-item {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: box-shadow 0.15s, border-color 0.15s;
+  }
+
+  .rec-item:hover {
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--green-mid);
+  }
+
+  .rec-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .rec-rank {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--soft);
+    margin-bottom: 2px;
+  }
+
+  .rec-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .rec-cat {
+    font-size: 11px;
+    color: var(--mid);
+    margin-top: 2px;
+  }
+
+  .match-pill {
+    background: var(--green);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .rec-reason {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.6;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+
+  .insight-panel {
+    background: var(--green-pale);
+    border: 1px solid var(--green-mid);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-top: 4px;
+  }
+
+  .insight-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--green);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .insight-text {
+    font-size: 13px;
+    color: #1A4D2E;
+    line-height: 1.7;
+  }
+
+  .cold-start-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #FEF3C7;
+    border: 1px solid #F59E0B;
+    color: #92400E;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  /* ── LOADING ──────────────────────────────── */
+  .loading-state {
+    flex: 1;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .loading-state.show { display: flex; }
+
+  .loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--line);
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading-text {
+    font-size: 13px;
+    color: var(--mid);
+    font-weight: 500;
+  }
+
+  .loading-sub {
+    font-size: 12px;
+    color: var(--soft);
+  }
+
+  /* ── MULTI-TURN ───────────────────────────── */
+  .convo-history {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    max-height: 160px;
+    overflow-y: auto;
+    display: none;
+    margin-top: 12px;
+  }
+
+  .convo-history.show { display: block; }
+
+  .turn {
+    font-size: 12px;
+    padding: 4px 0;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+
+  .turn:last-child { border: none; margin: 0; }
+  .turn-you { color: var(--green); font-weight: 600; }
+  .turn-agent { color: var(--mid); }
+
+  /* ── USERS TAB ────────────────────────────── */
+  .users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .user-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s;
+  }
+
+  .user-card:hover { box-shadow: var(--card-shadow-hover); }
+
+  .user-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .user-card-loc {
+    font-size: 12px;
+    color: var(--mid);
+    margin-bottom: 12px;
+  }
+
+  .user-card-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* ── SECTION HEADER ───────────────────────── */
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .section-desc {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* ── REFINE INPUT ─────────────────────────── */
+  .refine-section {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .refine-section.show { display: block; }
+
+  /* ── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 900px) {
+    .two-col { grid-template-columns: 1fr; }
+    .topbar, .hero, .nav-tabs { padding-left: 20px; padding-right: 20px; }
+    .main { padding: 24px 20px; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-datasets { display: none; }
+    .hero-title { font-size: 28px; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-    <div class="header-inner">
-        <div>
-            <h1>🇳🇬 Naija Agent</h1>
-            <p>LLM-powered User Modelling & Personalised Recommendation System</p>
-        </div>
-        <div class="badges">
-            <div class="badge">DSN × BCT 3.0</div>
-            <div class="badge">Yelp · Amazon · Goodreads</div>
-        </div>
+<!-- ── TOP BAR ─────────────────────────────────────────────── -->
+<nav class="topbar">
+  <div class="logo">
+    <div class="logo-mark">NA</div>
+    <div>
+      <div class="logo-text">Naija Agent</div>
+      <div class="logo-sub">User Modelling & Recommendation</div>
     </div>
-</header>
+  </div>
+  <div class="topbar-right">
+    <div class="status-dot"><div class="dot"></div> System Online</div>
+    <div class="badge-hackathon">DSN × BCT Hackathon 3.0</div>
+  </div>
+</nav>
 
-<div class="tabs">
-    <div class="tab active" onclick="switchTab('task-a', this)">Task A — User Modeling</div>
-    <div class="tab" onclick="switchTab('task-b', this)">Task B — Recommender</div>
-    <div class="tab" onclick="switchTab('users', this)">User Profiles</div>
+<!-- ── HERO ────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">🇳🇬 LLM Agent Challenge — Data & AI Summit</div>
+      <h1 class="hero-title">Intelligent User Modelling<br>for Nigerian Behaviour</h1>
+      <p class="hero-desc">An LLM-powered system that understands users as dynamic, context-sensitive agents — simulating authentic Nigerian reviews and delivering personalised cross-domain recommendations from real Yelp, Amazon, and Goodreads data.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num" id="stat-users">—</div>
+          <div class="stat-label">User Profiles</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Datasets</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Active Tasks</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Nigerian Cities</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-datasets">
+      <div class="hero-datasets-label">Data Sources</div>
+      <div class="dataset-item">
+        <div class="dataset-icon" style="background:#FFF3E0;">🍽️</div>
+        <div><strong>Yelp</strong> · Restaurants & Food</div>
+      </div>
+      <div class="dataset-item">
+        <div class="dataset-icon" style="background:#E3F2FD;">📦</div>
+        <div><strong>Amazon</strong> · Products</div>
+      </div>
+      <div class="dataset-item">
+        <div class="dataset-icon" style="background:#F3E5F5;">📚</div>
+        <div><strong>Goodreads</strong> · Books</div>
+      </div>
+      <div style="margin-top:8px; padding-top:10px; border-top:1px solid var(--line); font-size:11px; color:var(--soft);">
+        Cross-domain unified profiles
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+<!-- ── NAV TABS ────────────────────────────────────────────── -->
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="switchTab('task-a',this)">
+    Task A — User Modelling <span class="tab-badge">Review Simulation</span>
+  </div>
+  <div class="nav-tab" onclick="switchTab('task-b',this)">
+    Task B — Recommender <span class="tab-badge">Cross-Domain</span>
+  </div>
+  <div class="nav-tab" onclick="switchTab('profiles',this)">
+    User Profiles
+  </div>
+</div>
 
-    <!-- ── TASK A ─────────────────────────────────────────── -->
-    <div class="panel active" id="task-a">
-        <div class="two-col">
-            <div>
-                <div class="card">
-                    <h2>User Review Simulator</h2>
-                    <p class="subtitle">Select a real user from our dataset. The agent studies their full review history across Yelp, Amazon, and Goodreads — then simulates how they would review an unseen item.</p>
+<!-- ── MAIN ─────────────────────────────────────────────────── -->
+<div class="main">
 
-                    <label>Select User</label>
-                    <select id="user-select-a" onchange="loadUserCard('a')">
-                        <option value="">Loading users...</option>
-                    </select>
-
-                    <div id="user-card-a" class="user-card" style="display:none; margin-top:12px;">
-                        <h3 id="uca-name"></h3>
-                        <p id="uca-profile"></p>
-                        <div class="review-chips">
-                            <div class="chip">Yelp <span id="uca-yelp"></span></div>
-                            <div class="chip">Amazon <span id="uca-amazon"></span></div>
-                            <div class="chip">Goodreads <span id="uca-goodreads"></span></div>
-                        </div>
-                        <div class="pattern-grid" id="uca-pattern" style="margin-top:12px;"></div>
-                    </div>
-
-                    <label>Item Name</label>
-                    <input type="text" id="item-name" placeholder="e.g. Chicken Republic Lekki, Sony Headphones, Atomic Habits">
-
-                    <label>Item Category</label>
-                    <input type="text" id="item-category" placeholder="e.g. Fast Food, Electronics, Self Development">
-
-                    <label>Item Description</label>
-                    <textarea id="item-desc" placeholder="e.g. Popular Nigerian fast food chain known for fried chicken and chips, located in Lekki Lagos"></textarea>
-
-                    <button class="btn" onclick="generateReview()">Simulate This User's Review</button>
-                </div>
-            </div>
-
-            <div>
-                <div class="loading" id="loading-a">
-                    <span class="spinner"></span> Agent is analysing user behaviour...
-                </div>
-
-                <div class="result-box show" id="result-a" style="background:#111; border-color:#1a1a1a;">
-                    <div class="result-label">Simulated Review Will Appear Here</div>
-                    <p style="color:#333; font-size:13px;">Select a user and an item, then click Simulate.</p>
-                </div>
-            </div>
-        </div>
+  <!-- TASK A -->
+  <div class="panel active" id="task-a">
+    <div class="section-header">
+      <div class="section-eyebrow">Task A · User Modelling</div>
+      <div class="section-title">Review Behaviour Simulation</div>
+      <div class="section-desc">Select a user from the dataset. The agent reads their complete review history across Yelp, Amazon, and Goodreads — then simulates how they would review an item they have never seen before.</div>
     </div>
-
-    <!-- ── TASK B ─────────────────────────────────────────── -->
-    <div class="panel" id="task-b">
-        <div class="two-col">
-            <div>
-                <div class="card">
-                    <h2>Personalised Recommender</h2>
-                    <p class="subtitle">The agent reasons about user behaviour across food, products, and books — then delivers ranked, cross-domain recommendations with match scores.</p>
-
-                    <label>Select User</label>
-                    <select id="user-select-b" onchange="loadUserCard('b')">
-                        <option value="">Loading users...</option>
-                    </select>
-
-                    <div id="user-card-b" class="user-card" style="display:none; margin-top:12px;">
-                        <h3 id="ucb-name"></h3>
-                        <p id="ucb-profile"></p>
-                        <div class="review-chips">
-                            <div class="chip">Yelp <span id="ucb-yelp"></span></div>
-                            <div class="chip">Amazon <span id="ucb-amazon"></span></div>
-                            <div class="chip">Goodreads <span id="ucb-goodreads"></span></div>
-                        </div>
-                    </div>
-
-                    <label>Category</label>
-                    <input type="text" id="rec-category" placeholder="e.g. Restaurants in Lagos, Books, Nigerian Music, Electronics">
-
-                    <label>Additional Context (optional)</label>
-                    <textarea id="rec-context" placeholder="e.g. I am on a budget this month, I want something for a date night, recommend something I have never tried"></textarea>
-
-                    <button class="btn" onclick="getRecommendations()">Get Recommendations</button>
-
-                    <div class="multiturn-history" id="convo-history"></div>
-
-                    <div id="followup-section" style="display:none; margin-top:12px;">
-                        <label>Refine Your Request</label>
-                        <input type="text" id="followup-input" placeholder="e.g. Only budget friendly options, I prefer outdoor seating...">
-                        <button class="btn" style="margin-top:10px;" onclick="refineRecommendations()">Refine Recommendations</button>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="loading" id="loading-b">
-                    <span class="spinner"></span> Agent is reasoning about your preferences...
-                </div>
-
-                <div class="result-box show" id="result-b" style="background:#111; border-color:#1a1a1a;">
-                    <div class="result-label">Recommendations Will Appear Here</div>
-                    <p style="color:#333; font-size:13px;">Select a user and category, then click Get Recommendations.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ── USER PROFILES ──────────────────────────────────── -->
-    <div class="panel" id="users">
+    <div class="two-col">
+      <div>
         <div class="card">
-            <h2>All User Profiles</h2>
-            <p class="subtitle">Real users extracted from Yelp, Amazon Reviews, and Goodreads datasets.</p>
+          <div class="card-header">
+            <div class="card-eyebrow">Input Parameters</div>
+            <div class="card-title">Configure Simulation</div>
+            <div class="card-desc">Choose a real user from our dataset and specify the item to be reviewed.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Select User</label>
+            <select id="user-a" onchange="loadUserProfile('a')">
+              <option value="">Loading users...</option>
+            </select>
+          </div>
+
+          <div class="user-profile" id="profile-a">
+            <div class="user-name" id="pa-name"></div>
+            <div class="user-loc" id="pa-loc"></div>
+            <div class="review-chips" id="pa-chips"></div>
+            <div class="pattern-row" id="pa-pattern"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Item Name</label>
+            <input type="text" id="item-name" placeholder="e.g. Chicken Republic Lekki, Sony WH-1000XM5, Atomic Habits">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Item Category</label>
+            <input type="text" id="item-cat" placeholder="e.g. Fast Food, Electronics, Self Development">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Item Description</label>
+            <textarea id="item-desc" placeholder="Brief description of the item or place..."></textarea>
+          </div>
+
+          <button class="btn-primary" onclick="generateReview()" id="btn-a">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Simulate Review
+          </button>
         </div>
-        <div id="users-grid"></div>
+      </div>
+
+      <div class="result-panel">
+        <div class="result-empty" id="empty-a">
+          <div class="result-empty-icon">📝</div>
+          <h3>No Simulation Yet</h3>
+          <p>Select a user and an item, then click Simulate Review to see the agent in action.</p>
+        </div>
+        <div class="loading-state" id="loading-a">
+          <div class="loader"></div>
+          <div class="loading-text">Agent is analysing user behaviour...</div>
+          <div class="loading-sub">Reading review history across all three datasets</div>
+        </div>
+        <div class="result-content" id="result-a">
+          <div class="result-header">
+            <div>
+              <div class="result-user" id="ra-user"></div>
+              <div class="result-item" id="ra-item"></div>
+            </div>
+            <div class="stars-block">
+              <div class="stars-emoji" id="ra-stars-emoji"></div>
+              <div class="stars-num" id="ra-rating"></div>
+              <div class="stars-denom">/5</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--soft);">Simulated Review</div>
+            <div class="confidence-tag" id="ra-conf"></div>
+          </div>
+          <div class="review-quote" id="ra-review"></div>
+          <div class="reasoning-box">
+            <div class="reasoning-label">Agent Reasoning</div>
+            <div id="ra-reason"></div>
+          </div>
+          <div class="metrics-row" id="ra-metrics"></div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- TASK B -->
+  <div class="panel" id="task-b">
+    <div class="section-header">
+      <div class="section-eyebrow">Task B · Recommendation</div>
+      <div class="section-title">Personalised Cross-Domain Recommendations</div>
+      <div class="section-desc">The agent reasons about user preferences across food, products, and books — then delivers ranked recommendations with explicit match scores and behavioural reasoning.</div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-eyebrow">Input Parameters</div>
+            <div class="card-title">Configure Recommender</div>
+            <div class="card-desc">Leave user empty to test cold-start mode — the agent will infer preferences from context alone.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Select User <span style="font-weight:400; text-transform:none; letter-spacing:0;">(optional — leave empty for cold start)</span></label>
+            <select id="user-b" onchange="loadUserProfile('b')">
+              <option value="">— Cold Start Mode (no history) —</option>
+            </select>
+          </div>
+
+          <div class="user-profile" id="profile-b">
+            <div class="user-name" id="pb-name"></div>
+            <div class="user-loc" id="pb-loc"></div>
+            <div class="review-chips" id="pb-chips"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <input type="text" id="rec-cat" placeholder="e.g. Restaurants in Lagos, Nigerian music, Books on business">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Additional Context <span style="font-weight:400; text-transform:none; letter-spacing:0;">(optional)</span></label>
+            <textarea id="rec-ctx" placeholder="e.g. On a budget, looking for something for a date night, want to try something new..."></textarea>
+          </div>
+
+          <button class="btn-primary" onclick="getRecommendations()" id="btn-b">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Get Recommendations
+          </button>
+
+          <div class="convo-history" id="convo-b"></div>
+
+          <div class="refine-section" id="refine-section">
+            <label class="form-label">Refine Your Request</label>
+            <input type="text" id="refine-input" placeholder="e.g. Only budget-friendly options, prefer outdoor seating...">
+            <button class="btn-secondary" onclick="refineRecommendations()">Refine Recommendations</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-panel">
+        <div class="result-empty" id="empty-b">
+          <div class="result-empty-icon">🎯</div>
+          <h3>No Recommendations Yet</h3>
+          <p>Select a user and a category, then click Get Recommendations to see the agent reason through preferences.</p>
+        </div>
+        <div class="loading-state" id="loading-b">
+          <div class="loader"></div>
+          <div class="loading-text">Agent is reasoning about preferences...</div>
+          <div class="loading-sub">Cross-referencing Yelp, Amazon, and Goodreads signals</div>
+        </div>
+        <div class="result-content" id="result-b"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILES TAB -->
+  <div class="panel" id="profiles">
+    <div class="section-header">
+      <div class="section-eyebrow">Dataset · User Profiles</div>
+      <div class="section-title">All User Profiles</div>
+      <div class="section-desc">Real users extracted from Yelp, Amazon Reviews, and Goodreads datasets — unified into cross-domain behavioural profiles.</div>
+    </div>
+    <div class="users-grid" id="users-grid"></div>
+  </div>
 
 </div>
 
 <script>
-    let allUsers = [];
-    let conversationHistory = [];
+  let allUsers = [];
+  let conversationHistory = [];
 
-    // ── Load users on startup ──────────────────────────────
-    async function loadUsers() {
-        try {
-            const res = await fetch('/users');
-            const data = await res.json();
-            allUsers = data.users;
+  async function loadUsers() {
+    try {
+      const res = await fetch('/users');
+      const data = await res.json();
+      allUsers = data.users;
 
-            const optionsHTML = allUsers.map(u =>
-                `<option value="${u.user_id}">${u.name} — ${u.location} (${u.total_reviews} reviews)</option>`
-            ).join('');
+      document.getElementById('stat-users').textContent = allUsers.length;
 
-            document.getElementById('user-select-a').innerHTML = '<option value="">— Select a user —</option>' + optionsHTML;
-            document.getElementById('user-select-b').innerHTML = '<option value="">— Select a user (or leave empty for cold start) —</option>' + optionsHTML;
+      const opts = allUsers.map(u =>
+        `<option value="${u.user_id}">${u.name} · ${u.location} (${u.total_reviews} reviews)</option>`
+      ).join('');
 
-            renderUsersGrid();
-        } catch (e) {
-            console.error('Failed to load users', e);
-        }
+      document.getElementById('user-a').innerHTML = '<option value="">— Select a user —</option>' + opts;
+      document.getElementById('user-b').innerHTML = '<option value="">— Cold Start Mode (no history) —</option>' + opts;
+
+      renderProfiles();
+    } catch(e) {
+      console.error(e);
+    }
+  }
+
+  function renderProfiles() {
+    const grid = document.getElementById('users-grid');
+    grid.innerHTML = allUsers.map(u => `
+      <div class="user-card">
+        <div class="user-card-name">${u.name}</div>
+        <div class="user-card-loc">📍 ${u.location}</div>
+        <div class="user-card-chips">
+          <div class="chip">🍽️ Yelp · ${u.yelp_reviews}</div>
+          <div class="chip">📦 Amazon · ${u.amazon_reviews}</div>
+          <div class="chip">📚 Goodreads · ${u.goodreads_reviews}</div>
+          <div class="chip" style="background:var(--green-pale); color:var(--green); border-color:var(--green-mid);">Total · ${u.total_reviews}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  async function loadUserProfile(side) {
+    const uid = document.getElementById(`user-${side}`).value;
+    const profileEl = document.getElementById(`profile-${side}`);
+
+    if (!uid) { profileEl.classList.remove('show'); return; }
+
+    const user = allUsers.find(u => u.user_id === uid);
+    if (!user) return;
+
+    if (side === 'a') {
+      document.getElementById('pa-name').textContent = user.name;
+      document.getElementById('pa-loc').textContent = '📍 ' + user.location;
+      document.getElementById('pa-chips').innerHTML = `
+        <div class="chip">🍽️ Yelp · ${user.yelp_reviews} reviews</div>
+        <div class="chip">📦 Amazon · ${user.amazon_reviews} reviews</div>
+        <div class="chip">📚 Goodreads · ${user.goodreads_reviews} reviews</div>
+      `;
+      try {
+        const res = await fetch(`/users/${uid}`);
+        const data = await res.json();
+        const p = data.rating_pattern;
+        document.getElementById('pa-pattern').innerHTML = `
+          <div class="pattern-cell"><div class="pattern-val">${p.avg}</div><div class="pattern-lbl">Avg Rating</div></div>
+          <div class="pattern-cell"><div class="pattern-val">${p.count}</div><div class="pattern-lbl">Total Reviews</div></div>
+          <div class="pattern-cell"><div class="pattern-val">${p.min}–${p.max}</div><div class="pattern-lbl">Range</div></div>
+        `;
+      } catch(e) {}
+    } else {
+      document.getElementById('pb-name').textContent = user.name;
+      document.getElementById('pb-loc').textContent = '📍 ' + user.location;
+      document.getElementById('pb-chips').innerHTML = `
+        <div class="chip">🍽️ Yelp · ${user.yelp_reviews} reviews</div>
+        <div class="chip">📦 Amazon · ${user.amazon_reviews} reviews</div>
+        <div class="chip">📚 Goodreads · ${user.goodreads_reviews} reviews</div>
+      `;
     }
 
-    function renderUsersGrid() {
-        const grid = document.getElementById('users-grid');
-        grid.innerHTML = allUsers.map(u => `
-            <div class="user-card">
-                <h3>${u.name}</h3>
-                <p>${u.location} · ${u.profile || 'Dataset user'}</p>
-                <div class="review-chips">
-                    <div class="chip">Yelp <span>${u.yelp_reviews} reviews</span></div>
-                    <div class="chip">Amazon <span>${u.amazon_reviews} reviews</span></div>
-                    <div class="chip">Goodreads <span>${u.goodreads_reviews} reviews</span></div>
-                    <div class="chip">Total <span>${u.total_reviews}</span></div>
-                </div>
+    profileEl.classList.add('show');
+  }
+
+  function switchTab(id, el) {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
+
+  function getStars(n) {
+    return '⭐'.repeat(Math.min(parseInt(n) || 3, 5));
+  }
+
+  function showLoading(side) {
+    document.getElementById(`empty-${side}`).style.display = 'none';
+    document.getElementById(`loading-${side}`).classList.add('show');
+    document.getElementById(`result-${side}`).classList.remove('show');
+  }
+
+  function hideLoading(side) {
+    document.getElementById(`loading-${side}`).classList.remove('show');
+  }
+
+  async function generateReview() {
+    const uid = document.getElementById('user-a').value;
+    const name = document.getElementById('item-name').value.trim();
+    const cat = document.getElementById('item-cat').value.trim();
+    const desc = document.getElementById('item-desc').value.trim();
+
+    if (!uid) { alert('Please select a user.'); return; }
+    if (!name || !cat) { alert('Please fill in item name and category.'); return; }
+
+    showLoading('a');
+    document.getElementById('btn-a').disabled = true;
+
+    try {
+      const res = await fetch('/generate-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_id: uid, item_name: name, item_category: cat, item_description: desc || name })
+      });
+
+      const d = await res.json();
+      const user = allUsers.find(u => u.user_id === uid);
+
+      document.getElementById('ra-user').textContent = d.user_name + ' · Simulated Review';
+      document.getElementById('ra-item').textContent = name;
+      document.getElementById('ra-stars-emoji').textContent = getStars(d.simulated_rating);
+      document.getElementById('ra-rating').textContent = d.simulated_rating;
+      document.getElementById('ra-review').textContent = '"' + d.simulated_review + '"';
+      document.getElementById('ra-reason').textContent = d.reasoning;
+
+      const confEl = document.getElementById('ra-conf');
+      confEl.textContent = d.confidence + ' CONFIDENCE';
+      confEl.className = 'confidence-tag conf-' + d.confidence;
+
+      const p = d.user_rating_pattern;
+      document.getElementById('ra-metrics').innerHTML = `
+        <div class="metric-cell"><div class="metric-val">${p.avg}</div><div class="metric-lbl">User Avg</div></div>
+        <div class="metric-cell"><div class="metric-val">${p.count}</div><div class="metric-lbl">Total Reviews</div></div>
+        <div class="metric-cell"><div class="metric-val">${d.simulated_rating}</div><div class="metric-lbl">Simulated</div></div>
+      `;
+
+      hideLoading('a');
+      document.getElementById('result-a').classList.add('show');
+    } catch(e) {
+      alert('Something went wrong. Check your API key.');
+      hideLoading('a');
+      document.getElementById('empty-a').style.display = 'flex';
+    }
+
+    document.getElementById('btn-a').disabled = false;
+  }
+
+  async function getRecommendations() {
+    const uid = document.getElementById('user-b').value;
+    const cat = document.getElementById('rec-cat').value.trim();
+    const ctx = document.getElementById('rec-ctx').value.trim();
+
+    if (!cat) { alert('Please enter a category.'); return; }
+
+    conversationHistory = [];
+    if (ctx) conversationHistory.push({ role: 'user', content: `Category: ${cat}. Context: ${ctx}` });
+
+    await fetchRecs(uid, cat, ctx);
+  }
+
+  async function refineRecommendations() {
+    const uid = document.getElementById('user-b').value;
+    const cat = document.getElementById('rec-cat').value.trim();
+    const followup = document.getElementById('refine-input').value.trim();
+    if (!followup) return;
+    conversationHistory.push({ role: 'user', content: followup });
+    await fetchRecs(uid, cat, followup);
+    document.getElementById('refine-input').value = '';
+  }
+
+  async function fetchRecs(uid, cat, ctx) {
+    showLoading('b');
+    document.getElementById('btn-b').disabled = true;
+
+    try {
+      const res = await fetch('/get-recommendations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_id: uid || 'cold_start',
+          category: cat,
+          context: ctx,
+          conversation_history: conversationHistory
+        })
+      });
+
+      const d = await res.json();
+
+      let html = '';
+
+      if (d.is_cold_start) {
+        html += `<div class="cold-start-tag">⚡ Cold Start Mode — No prior history</div>`;
+      }
+
+      html += `<div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--soft); margin-bottom:12px;">Ranked Recommendations · ${d.total_recommendations} Results</div>`;
+
+      html += d.recommendations.map((r, i) => `
+        <div class="rec-item">
+          <div class="rec-row">
+            <div>
+              <div class="rec-rank">Rank #${i + 1}</div>
+              <div class="rec-name">${r.name}</div>
+              <div class="rec-cat">${r.category}</div>
             </div>
+            <div class="match-pill">Match ${r.match_score}/10</div>
+          </div>
+          <div class="rec-reason">${r.reason}</div>
+        </div>
+      `).join('');
+
+      if (d.agent_insight) {
+        html += `
+          <div class="insight-panel">
+            <div class="insight-label">🧠 Agent Insight</div>
+            <div class="insight-text">${d.agent_insight}</div>
+          </div>
+        `;
+      }
+
+      hideLoading('b');
+      const resultEl = document.getElementById('result-b');
+      resultEl.innerHTML = html;
+      resultEl.classList.add('show');
+
+      conversationHistory.push({ role: 'assistant', content: d.recommendations.map(r => r.name).join(', ') });
+
+      const convoEl = document.getElementById('convo-b');
+      if (conversationHistory.length > 1) {
+        convoEl.classList.add('show');
+        convoEl.innerHTML = conversationHistory.map(t => `
+          <div class="turn ${t.role === 'user' ? 'turn-you' : 'turn-agent'}">
+            <strong>${t.role === 'user' ? 'You' : 'Agent'}:</strong> ${t.content}
+          </div>
         `).join('');
+      }
+
+      document.getElementById('refine-section').classList.add('show');
+
+    } catch(e) {
+      alert('Something went wrong. Check your API key.');
+      hideLoading('b');
+      document.getElementById('empty-b').style.display = 'flex';
     }
 
-    function loadUserCard(side) {
-        const selectId = side === 'a' ? 'user-select-a' : 'user-select-b';
-        const userId = document.getElementById(selectId).value;
-        if (!userId) return;
+    document.getElementById('btn-b').disabled = false;
+  }
 
-        const user = allUsers.find(u => u.user_id === userId);
-        if (!user) return;
-
-        if (side === 'a') {
-            document.getElementById('uca-name').textContent = user.name;
-            document.getElementById('uca-profile').textContent = user.profile || user.location;
-            document.getElementById('uca-yelp').textContent = user.yelp_reviews + ' reviews';
-            document.getElementById('uca-amazon').textContent = user.amazon_reviews + ' reviews';
-            document.getElementById('uca-goodreads').textContent = user.goodreads_reviews + ' reviews';
-            document.getElementById('user-card-a').style.display = 'block';
-            loadRatingPattern(userId);
-        } else {
-            document.getElementById('ucb-name').textContent = user.name;
-            document.getElementById('ucb-profile').textContent = user.profile || user.location;
-            document.getElementById('ucb-yelp').textContent = user.yelp_reviews + ' reviews';
-            document.getElementById('ucb-amazon').textContent = user.amazon_reviews + ' reviews';
-            document.getElementById('ucb-goodreads').textContent = user.goodreads_reviews + ' reviews';
-            document.getElementById('user-card-b').style.display = 'block';
-        }
-    }
-
-    async function loadRatingPattern(userId) {
-        try {
-            const res = await fetch(`/users/${userId}`);
-            const data = await res.json();
-            const p = data.rating_pattern;
-            document.getElementById('uca-pattern').innerHTML = `
-                <div class="pattern-item"><div class="val">${p.avg}</div><div class="lbl">Avg Rating</div></div>
-                <div class="pattern-item"><div class="val">${p.count}</div><div class="lbl">Total Reviews</div></div>
-                <div class="pattern-item"><div class="val">${p.min}–${p.max}</div><div class="lbl">Rating Range</div></div>
-            `;
-        } catch(e) {}
-    }
-
-    // ── Tab switching ──────────────────────────────────────
-    function switchTab(tabId, el) {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        el.classList.add('active');
-    }
-
-    function getStars(rating) {
-        const n = parseInt(rating) || 3;
-        return '⭐'.repeat(n);
-    }
-
-    // ── Task A — Generate Review ───────────────────────────
-    async function generateReview() {
-        const userId = document.getElementById('user-select-a').value;
-        const itemName = document.getElementById('item-name').value.trim();
-        const itemCategory = document.getElementById('item-category').value.trim();
-        const itemDesc = document.getElementById('item-desc').value.trim();
-
-        if (!userId) { alert('Please select a user first.'); return; }
-        if (!itemName || !itemCategory) { alert('Please fill in item name and category.'); return; }
-
-        document.getElementById('loading-a').classList.add('show');
-        document.getElementById('result-a').classList.remove('show');
-        document.querySelector('#task-a .btn').disabled = true;
-
-        try {
-            const res = await fetch('/generate-review', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user_id: userId,
-                    item_name: itemName,
-                    item_category: itemCategory,
-                    item_description: itemDesc || itemName
-                })
-            });
-
-            const data = await res.json();
-            const resultBox = document.getElementById('result-a');
-
-            resultBox.innerHTML = `
-                <div class="result-label">Simulated Review — ${data.user_name}</div>
-                <div class="stars-row">
-                    <div class="stars">${getStars(data.simulated_rating)}</div>
-                    <div style="font-size:16px; font-weight:800; color:#FFD700;">${data.simulated_rating}/5</div>
-                    <div class="confidence-badge confidence-${data.confidence}">${data.confidence} CONFIDENCE</div>
-                </div>
-                <div class="review-text">"${data.simulated_review}"</div>
-                <div class="reasoning-box">
-                    <strong>Agent Reasoning:</strong> ${data.reasoning}
-                </div>
-                <div class="pattern-grid" style="margin-top:14px;">
-                    <div class="pattern-item"><div class="val">${data.user_rating_pattern.avg}</div><div class="lbl">User Avg</div></div>
-                    <div class="pattern-item"><div class="val">${data.user_rating_pattern.count}</div><div class="lbl">Reviews</div></div>
-                    <div class="pattern-item"><div class="val">${data.simulated_rating}</div><div class="lbl">Simulated</div></div>
-                </div>
-            `;
-
-            resultBox.style.background = '#1a1a1a';
-            resultBox.style.borderColor = '#2a2a2a';
-            resultBox.classList.add('show');
-        } catch (e) {
-            alert('Something went wrong. Check your API key and try again.');
-        }
-
-        document.getElementById('loading-a').classList.remove('show');
-        document.querySelector('#task-a .btn').disabled = false;
-    }
-
-    // ── Task B — Recommendations ───────────────────────────
-    async function getRecommendations() {
-        const userId = document.getElementById('user-select-b').value;
-        const category = document.getElementById('rec-category').value.trim();
-        const context = document.getElementById('rec-context').value.trim();
-
-        if (!category) { alert('Please enter a category.'); return; }
-
-        conversationHistory = [];
-        if (context) {
-            conversationHistory.push({ role: 'user', content: `Category: ${category}. Context: ${context}` });
-        }
-
-        await fetchRecommendations(userId, category, context);
-    }
-
-    async function refineRecommendations() {
-        const userId = document.getElementById('user-select-b').value;
-        const category = document.getElementById('rec-category').value.trim();
-        const followup = document.getElementById('followup-input').value.trim();
-
-        if (!followup) { alert('Please enter your refinement request.'); return; }
-
-        conversationHistory.push({ role: 'user', content: followup });
-        await fetchRecommendations(userId, category, followup);
-        document.getElementById('followup-input').value = '';
-    }
-
-    async function fetchRecommendations(userId, category, context) {
-        document.getElementById('loading-b').classList.add('show');
-        document.getElementById('result-b').classList.remove('show');
-
-        try {
-            const res = await fetch('/get-recommendations', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user_id: userId || 'cold_start',
-                    category: category,
-                    context: context,
-                    conversation_history: conversationHistory
-                })
-            });
-
-            const data = await res.json();
-
-            const recsHTML = data.recommendations.map((r, i) => `
-                <div class="rec-item">
-                    <div class="rec-header">
-                        <div>
-                            <div class="rec-name">${i + 1}. ${r.name}</div>
-                            <div class="rec-category">${r.category}</div>
-                        </div>
-                        <div class="match-score">Match: ${r.match_score}/10</div>
-                    </div>
-                    <div class="rec-reason">${r.reason}</div>
-                </div>
-            `).join('');
-
-            const coldStartBadge = data.is_cold_start
-                ? '<div class="chip" style="margin-bottom:12px; display:inline-block;">⚡ Cold Start Mode</div>'
-                : '';
-
-            const resultBox = document.getElementById('result-b');
-            resultBox.innerHTML = `
-                <div class="result-label">Personalised Recommendations</div>
-                ${coldStartBadge}
-                ${recsHTML}
-                ${data.agent_insight ? `
-                <div class="insight-box">
-                    <div class="insight-label">🧠 Agent Insight</div>
-                    <p>${data.agent_insight}</p>
-                </div>` : ''}
-            `;
-
-            resultBox.style.background = '#1a1a1a';
-            resultBox.style.borderColor = '#2a2a2a';
-            resultBox.classList.add('show');
-
-            conversationHistory.push({ role: 'assistant', content: data.recommendations.map(r => r.name).join(', ') });
-
-            document.getElementById('followup-section').style.display = 'block';
-
-            const historyEl = document.getElementById('convo-history');
-            if (conversationHistory.length > 1) {
-                historyEl.classList.add('show');
-                historyEl.innerHTML = conversationHistory.map(t =>
-                    `<div class="turn ${t.role}"><strong>${t.role === 'user' ? 'You' : 'Agent'}:</strong> ${t.content}</div>`
-                ).join('');
-            }
-
-        } catch (e) {
-            alert('Something went wrong. Check your API key and try again.');
-        }
-
-        document.getElementById('loading-b').classList.remove('show');
-    }
-
-    // ── Init ───────────────────────────────────────────────
-    loadUsers();
+  loadUsers();
 </script>
-
 </body>
 </html>
