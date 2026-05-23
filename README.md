@@ -38,7 +38,7 @@ naija-agent/
 ├── docker-compose.yml   # Multi-service orchestration
 └── README.md
 ## 📊 Datasets
-
+---
 | Dataset | Source | Users | Items | Domain |
 |---------|--------|-------|-------|--------|
 | Yelp | Kaggle (yelp-dataset) | 26 | 452 businesses | Food & Restaurants |
@@ -205,4 +205,4 @@ DSN × BCT LLM Agent Challenge — Hackathon 3.0 · May 2026
 
 ---
 
-*Built with Claude AI assistance. Datasets: Yelp (Kaggle), Amazon Reviews (Kaggle), Goodreads (Kaggle). Use of public pre-trained models and additional datasets disclosed per competition rules.*
+* Datasets: Yelp (Kaggle), Amazon Reviews (Kaggle), Goodreads (Kaggle). Use of public pre-trained models and additional datasets disclosed per competition rules.*
