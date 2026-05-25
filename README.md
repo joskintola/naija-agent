@@ -151,9 +151,8 @@ POST /get-recommendations
 
 ---
 
-## 🇳🇬 Nigerian Context
+## Nigerian Context
 
-Nigerian context is architecturally embedded at every layer:
 
 - **Language** — Agent produces authentic Nigerian Pidgin English, city-specific references, and demographic-specific vocabulary
 - **Geography** — Covers Lagos, Abuja, Ibadan, Port Harcourt, and Kano with distinct cultural personalities
@@ -194,7 +193,7 @@ Nigerian context is architecturally embedded at every layer:
 
 ## 📄 Solution Paper
 
-The full 4-8 page solution paper covering approach, architecture decisions, experiments, ablation studies, and future work is included in the submission.
+The  solution paper covering approach, architecture decisions, experiments, ablation studies, and future work is included in the submission.
 
 ---
 
@@ -206,4 +205,4 @@ DSN × BCT LLM Agent Challenge — Hackathon 3.0 · May 2026
 
 ---
 
-* Datasets: Yelp (Kaggle), Amazon Reviews (Kaggle), Goodreads (Kaggle). Use of public pre-trained models and additional datasets disclosed per competition rules.*
+* Datasets: Yelp (Kaggle), Amazon Reviews (Kaggle), Goodreads (Kaggle). Use of public pre-trained models and additional datasets.*
